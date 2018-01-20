@@ -8,11 +8,11 @@ CREATE TABLE users(
 	lastName VARCHAR(255) NOT NULL,
 	email VARCHAR(320) NOT NULL,
 	password VARCHAR(32) NOT NULL,
-	caresAboutSchool BOOLEAN default false,
-	caresAboutGroceryStore BOOLEAN default false,
+	caresAboutSchools BOOLEAN default false,
+	caresAboutGroceryStores BOOLEAN default false,
 	caresAboutParks BOOLEAN default false,
 	caresAboutCrime BOOLEAN default false,
-	caresAboutHospital BOOLEAN default false,
+	caresAboutHospitals BOOLEAN default false,
 	zipcode VARCHAR(10) NOT NULL,
 	budget DECIMAL(10,2) NOT NULL,
 	sqft INT NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE users(
 	bathrooms INT NOT NULL,
 	PRIMARY KEY(id)
 
-)ENGINE=INNODB;
+);
 
 CREATE TABLE sellers(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -31,7 +31,7 @@ CREATE TABLE sellers(
 	phoneNumber VARCHAR(20) NOT NULL,
 	PRIMARY KEY(id)
 
-)ENGINE=INNODB;
+);
 
 
 CREATE TABLE listings(
@@ -48,7 +48,7 @@ CREATE TABLE listings(
  	sellerId INT,
  	FOREIGN KEY(sellerId) REFERENCES sellers(id),
  	PRIMARY KEY(id)
-)ENGINE=INNODB;
+);
 
 CREATE TABLE community(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -60,7 +60,7 @@ CREATE TABLE community(
 	bestSchoolRating INT NOT NULL,
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
-)ENGINE=INNODB;
+);
 
 CREATE TABLE matches(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -69,4 +69,6 @@ CREATE TABLE matches(
 	FOREIGN KEY(userId) REFERENCES users(id),
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
-)ENGINE=INNODB;
+);
+
+
