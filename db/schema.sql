@@ -8,11 +8,11 @@ CREATE TABLE users(
 	lastName VARCHAR(255) NOT NULL,
 	email VARCHAR(320) NOT NULL,
 	password VARCHAR(32) NOT NULL,
-	caresAboutSchool BOOLEAN default false,
-	caresAboutGroceryStore BOOLEAN default false,
+	caresAboutSchools BOOLEAN default false,
+	caresAboutGroceryStores BOOLEAN default false,
 	caresAboutParks BOOLEAN default false,
 	caresAboutCrime BOOLEAN default false,
-	caresAboutHospital BOOLEAN default false,
+	caresAboutHospitals BOOLEAN default false,
 	zipcode VARCHAR(10) NOT NULL,
 	budget DECIMAL(10,2) NOT NULL,
 	sqft INT NOT NULL,
@@ -60,6 +60,7 @@ CREATE TABLE community(
 	bestSchoolRating INT NOT NULL,
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
+<<<<<<< HEAD
 )ENGINE=INNODB;
 
 CREATE TABLE matches(
@@ -70,3 +71,6 @@ CREATE TABLE matches(
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
 )ENGINE=INNODB;
+=======
+);
+>>>>>>> fc1a6dd27697276e58243a54f7fc271810ef9667
