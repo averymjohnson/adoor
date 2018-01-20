@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     bathrooms: DataTypes.INTEGER,
     price: DataTypes.DECIMAL,
     picturePath: DataTypes.STRING,
-    sellerId: DataTypes.INTEGER
+    sellerEmail: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
