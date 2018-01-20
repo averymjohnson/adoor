@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "mzLApq7214!",
     "database": "adoor_dev",
     "host": "127.0.0.1",
     "dialect": "mysql"
