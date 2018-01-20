@@ -1,4 +1,4 @@
-var passport = require('passport');
+//var passport = require('passport');
 var session = require('express-session');
 
 //For Passport
@@ -7,15 +7,7 @@ app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
 
 app.post('/user-login', passport.authenticate('local-signup', {
-        successRedirect: '/dashboard',
- 
-        failureRedirect: '/signup'
-    }
- 
-));
-
-app.post('/seller-login', passport.authenticate('local-signup', {
-        successRedirect: '/dashboard',
+        successRedirect: '/matches',
  
         failureRedirect: '/signup'
     }
