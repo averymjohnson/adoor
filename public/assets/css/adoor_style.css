@@ -1,0 +1,83 @@
+body, html {
+    height: 100%;
+    margin-bottom: 0;
+}
+.bg {
+    background-image: url("../images/door2.png") ;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 0px;
+    margin-right: 0;
+}
+#buy {
+    border-radius: 5px;
+    padding: 20px 48px;
+    background-color: #c9283e;
+    text-align: center;
+    font-size: 24px;
+}
+#sell {
+    border-radius: 5px;
+    padding: 20px 48px;
+    background-color: #c9283e;
+    text-align: center;
+    font-size: 24px;
+}
+#login {
+    background-color: white;
+    padding: 10px;
+    font-weight: bolder;
+    float: right;
+    }
+    #buttons {
+        margin-top: 35%;
+        margin-left: 9%;
+        align-items: center;
+    }
+#submit{
+    width:100px;
+    background-color: #C9283E;
+    border-color: #C9283E;
+    font-color: white;
+    font-weight: bold;
+}
+#sign {
+    font-weight: bold;
+}
+#quiz{
+    width:100px;
+    background-color: #C9283E;
+    border-color: #C9283E;
+    font-color: white;
+    font-weight: bold;
+}
+ #match {
+    width:200px;
+    background-color: #C9283E;
+    border-color: #C9283E;
+    font-color: white;
+    font-weight: bold;
+ }
+#email {
+    width: 300px;
+}
+#pw {
+    width: 300px;
+}
+.head {
+    margin-top: 10px; 
+    height: 200px;
+    width: 400px;
+}
+#container {
+    margin-top: 50px;
+}
+#link {
+    font-size: 20px;
+}
+#log {
+    font-weight: bold;
+    margin-bottom: 20px; 
+}
