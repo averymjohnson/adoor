@@ -8,6 +8,8 @@ var port = process.env.PORT || 3000;
 
 var app = express();
 
+SALT_WORK_FACTOR = 12;
+
 app.use(express.static(process.cwd() + '/public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,7 +28,7 @@ require('./routes/html-routes.js')(app);
 require('./routes/auth-routes.js')(app,passport);
 
 //load passport strategies
-require('./app/config/passport/passport.js')(passport, models.user);
+require('./app/config/passport.js')(passport, models.user);
 
 app.listen(port, function() {
   console.log("App listening on PORT " + port);
