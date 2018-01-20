@@ -11,8 +11,12 @@ module.exports = {
       listingId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: "listing",
-        referencesKey: "id"
+        // references: "listing",
+        // referencesKey: "id"
+        references: {
+          model: "listings",
+          key: "id"
+        }
         },
       hospitalsCount: {
         allowNull: false,

@@ -20,7 +20,7 @@ CREATE TABLE users(
 	bathrooms INT NOT NULL,
 	PRIMARY KEY(id)
 
-)ENGINE=INNODB;
+);
 
 CREATE TABLE sellers(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -31,7 +31,7 @@ CREATE TABLE sellers(
 	phoneNumber VARCHAR(20) NOT NULL,
 	PRIMARY KEY(id)
 
-)ENGINE=INNODB;
+);
 
 
 CREATE TABLE listings(
@@ -48,7 +48,7 @@ CREATE TABLE listings(
  	sellerId INT,
  	FOREIGN KEY(sellerId) REFERENCES sellers(id),
  	PRIMARY KEY(id)
-)ENGINE=INNODB;
+);
 
 CREATE TABLE community(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -61,7 +61,11 @@ CREATE TABLE community(
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
 <<<<<<< HEAD
+<<<<<<< HEAD
 )ENGINE=INNODB;
+=======
+);
+>>>>>>> 2cef765aac802a297bcac1d7433cac88751c49da
 
 CREATE TABLE matches(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -70,7 +74,13 @@ CREATE TABLE matches(
 	FOREIGN KEY(userId) REFERENCES users(id),
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
+<<<<<<< HEAD
 )ENGINE=INNODB;
 =======
 );
 >>>>>>> fc1a6dd27697276e58243a54f7fc271810ef9667
+=======
+);
+
+
+>>>>>>> 2cef765aac802a297bcac1d7433cac88751c49da
