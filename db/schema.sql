@@ -33,6 +33,14 @@ CREATE TABLE sellers(
 
 );
 
+CREATE TABLE matches(
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT,
+	listingId INT,
+	FOREIGN KEY(userId) REFERENCES users(id),
+	FOREIGN KEY(listingId) REFERENCES listings(id),
+	PRIMARY KEY(id)
+);
 
 CREATE TABLE listings(
  	id INT NOT NULL AUTO_INCREMENT,
@@ -60,12 +68,7 @@ CREATE TABLE community(
 	bestSchoolRating INT NOT NULL,
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
-<<<<<<< HEAD
-<<<<<<< HEAD
-)ENGINE=INNODB;
-=======
 );
->>>>>>> 2cef765aac802a297bcac1d7433cac88751c49da
 
 CREATE TABLE matches(
 	id INT NOT NULL AUTO_INCREMENT,
@@ -74,13 +77,4 @@ CREATE TABLE matches(
 	FOREIGN KEY(userId) REFERENCES users(id),
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
-<<<<<<< HEAD
-)ENGINE=INNODB;
-=======
 );
->>>>>>> fc1a6dd27697276e58243a54f7fc271810ef9667
-=======
-);
-
-
->>>>>>> 2cef765aac802a297bcac1d7433cac88751c49da
