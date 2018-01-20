@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   // index/home page
   app.get("/", function(req, res) {
-    // res.sendFile(path.join(__dirname, ""));
+    res.sendFile(path.join(__dirname, ""));
     console.log("home page load successful");
   });
 
