@@ -16,7 +16,7 @@ module.exports = function(app) {
 
   // log-in page
   app.get('/log-in', function (req, res) {
-    res.render('adoor');;
+    res.render('log-in');;
     console.log("log in page load successful");
   });
 
