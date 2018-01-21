@@ -16,7 +16,7 @@ module.exports = function(app) {
 
   // log-in page
   app.get('/log-in', function (req, res) {
-    res.render('adoor');;
+    res.render('log-in');;
     console.log("log in page load successful");
   });
 
@@ -36,6 +36,11 @@ module.exports = function(app) {
   app.get('/my-matches', function (req, res) {
     res.render('adoor');;
     console.log("my matches page load successful");
+  });
+
+  app.get('/its-a-match', function (req, res) {
+    res.render('adoor');;
+    console.log("it's a match page load successful");
   });
 
   
