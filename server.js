@@ -43,9 +43,6 @@ app.set('view engine', 'handlebars');
 require('./routes/html-routes.js')(app);
 
 
-//load passport strategies
-// require('./app/config/passport.js')(passport, models.user);
-
 app.listen(port, function() {
   console.log("App listening on PORT " + port);
 });
