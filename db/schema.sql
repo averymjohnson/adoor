@@ -69,3 +69,12 @@ CREATE TABLE community(
 	FOREIGN KEY(listingId) REFERENCES listings(id),
 	PRIMARY KEY(id)
 );
+
+CREATE TABLE matches(
+	id INT NOT NULL AUTO_INCREMENT,
+	userId INT,
+	listingId INT,
+	FOREIGN KEY(userId) REFERENCES users(id),
+	FOREIGN KEY(listingId) REFERENCES listings(id),
+	PRIMARY KEY(id)
+);

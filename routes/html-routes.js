@@ -38,6 +38,11 @@ module.exports = function(app) {
     console.log("my matches page load successful");
   });
 
+  app.get('/its-a-match', function (req, res) {
+    res.render('adoor');;
+    console.log("it's a match page load successful");
+  });
+
   
 
  // Seller Routes
