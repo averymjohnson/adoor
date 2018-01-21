@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
@@ -16,3 +17,20 @@ router.route('/google')
 }));
 
 module.exports = router;
+=======
+// //var passport = require('passport');
+// var session = require('express-session');
+
+// //For Passport
+// app.use(session({secret:'adoorsecret', resave: true, saveUninitialized:true})); //session secret
+// app.use(passport.initialize());
+// app.use(passport.session()); //persistent login sessions
+
+// app.post('/user-login', passport.authenticate('local-signup', {
+//         successRedirect: '/matches',
+ 
+//         failureRedirect: '/signup'
+//     }
+ 
+// ));
+>>>>>>> 4f66b834e3f0e728f64190e1028a03f4b52113f6

@@ -41,9 +41,13 @@ app.set('view engine', 'handlebars');
 
 // Import routes and give the server access to them
 require('./routes/html-routes.js')(app);
+<<<<<<< HEAD
+=======
+// require('./routes/auth-routes.js')(app,passport);
+>>>>>>> 4f66b834e3f0e728f64190e1028a03f4b52113f6
 
 //load passport strategies
-require('./app/config/passport.js')(passport, models.user);
+// require('./app/config/passport.js')(passport, models.user);
 
 app.listen(port, function() {
   console.log("App listening on PORT " + port);
