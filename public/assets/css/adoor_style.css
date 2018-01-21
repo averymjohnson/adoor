@@ -1,14 +1,14 @@
 body, html {
     height: 100%;
     margin-bottom: 0;
-    background-image: url("../images/bg_all.png");
+    background-image: url("assets/img/bg_all.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .sellbg {
-    background-image: url("../images/sellbg.png") ;
+    background-image: url("assets/img/sellbg.png") ;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,7 +18,7 @@ body, html {
 }
 
 .bg {
-    background-image: url("../images/door2.png") ;
+    background-image: url("assets/img/door2.png") ;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,13 +27,14 @@ body, html {
     margin-right: 0;
 }
 
-#buy {
+#find-match {
     border-radius: 5px;
     padding: 20px 48px;
-    background-color: white;
+    background-color: #C9283E;
     text-align: center;
     font-size: 24px;
     margin-top: 100px;
+    font-weight: bold;
 }
 
 #sell {
@@ -129,5 +130,14 @@ body, html {
 }
 
 .logo {
-    max-height: 300px;
+    max-height: 200px;
+}
+
+#home {
+    text-align: center;
+    background: url(..//img/door2.jpg) no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
 }
