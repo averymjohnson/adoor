@@ -1,15 +1,19 @@
-// //var passport = require('passport');
-// var session = require('express-session');
+var express = require('express');
+var passport = require('passport');
+var router = express.Router();
 
-// //For Passport
-// app.use(session({secret:'adoorsecret', resave: true, saveUninitialized:true})); //session secret
-// app.use(passport.initialize());
-// app.use(passport.session()); //persistent login sessions
+router.route('/google/callback')
+	.get(passport.autheticate('google',{
+		successRedirect: '/users/',
+		failure: '/error/'
+}));
 
-// app.post('/user-login', passport.authenticate('local-signup', {
-//         successRedirect: '/matches',
- 
-//         failureRedirect: '/signup'
-//     }
- 
-// ));
+
+router.route('/google')
+	.get(passport.autheticate('google',{
+		scope:['https:www.googleapis.com/auth/userinfo.profile',
+			'https://googleapis.com/auth/userinfo.email']
+}));
+
+module.exports = router;
+
