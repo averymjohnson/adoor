@@ -62,6 +62,6 @@ router.use('/', function(req, res, next){
 
   // Upload New Listing Page
   app.get('/new-listing', function (req, res) {
-    res.render('adoor');
+    res.render('createListing');
   });
 };
