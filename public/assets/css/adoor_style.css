@@ -141,3 +141,47 @@ body, html {
       -o-background-size: cover;
       background-size: cover;
 }
+
+#demo {
+    font-weight: bold;
+}
+
+.matchbtn {
+    width:200px;
+    background-color: #C9283E;
+    border-color: #C9283E;
+    font-color: white;
+    font-weight: bold;
+    padding: 20px;
+}
+
+#imgmatch {
+    height: 350px;
+    padding: 20px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+    margin-left: 5px;
+
+}
+
+#img-upload{
+    width: 100%;
+}
+
