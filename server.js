@@ -26,9 +26,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Passport and Express-Session logic
+app.use(session({secret: 'anything'}));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(session({secret: 'anything'}));
+
 
 //Set up authentication routes
 app.use('/auth', auth);
