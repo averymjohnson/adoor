@@ -1,10 +1,11 @@
+
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
 
 router.route('/google/callback')
 	.get(passport.authenticate('google',{
-		successRedirect: '/users/',
+		successRedirect: '/matching/',
 		failure: '/error/'
 }));
 
@@ -16,4 +17,3 @@ router.route('/google')
 }));
 
 module.exports = router;
-

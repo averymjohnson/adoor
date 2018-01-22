@@ -28,7 +28,10 @@ module.exports = function(app) {
 
   // Matching Page
   app.get('/matching', function (req, res) {
-    res.render('adoor');;
+    //For google login testing purposes we are rendering log-in here, once we have
+    //the matches page working we can update this.
+    res.render('log-in', {user: {name: req.user.displayName,
+                                    image: req.user._json.image.url}});
     console.log("matching page load successful");
   });
 
