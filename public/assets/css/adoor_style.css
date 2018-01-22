@@ -217,4 +217,10 @@ background-image: linear-gradient(314deg, #ffcedd 0%, #ffffff 100%);
 
 #quizBanner{
     font-size: 25px;
+
+.social-media-login {
+    margin: 20px;
 }
+
+.social {
+    margin: 0px 10px;
