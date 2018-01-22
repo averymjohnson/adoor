@@ -22,7 +22,7 @@ module.exports = function(app) {
 
   // Bueyr Create a Profile Page/Fill out Survey
   app.get('/profile-create', function (req, res) {
-    res.render('adoor');;
+    res.render('signUpWithQuiz');;
     console.log("profile create page load successful");
   });
 
@@ -34,7 +34,7 @@ module.exports = function(app) {
 
   // My Matches Page
   app.get('/my-matches', function (req, res) {
-    res.render('adoor');;
+    res.render('my-matches');;
     console.log("my matches page load successful");
   });
 
@@ -49,22 +49,10 @@ module.exports = function(app) {
  // ==========================================================
 
  // Seller Create Profile
-  app.get('/admin-create', function (req, res) {
-    res.render('adoor');;
-    console.log("admin create page load successful");
-  });
 
   // Upload New Listing Page
   app.get('/new-listing', function (req, res) {
     res.render('adoor');;
     console.log("add listing page load successful");
   });
-
-  //Manage Listings Page 
-  app.get('/manage-listings', function (req, res) {
-    res.render('adoor');;
-    console.log("manage listing page load successful");
-  });
-
-
 };
