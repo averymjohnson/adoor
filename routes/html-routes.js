@@ -1,9 +1,22 @@
 // add routes
 var path = require("path");
+var express = require('express');
+var router = express.Router();
 
 // Routes
 // =============================================================
 module.exports = function(app) {
+
+/*Middleware that will allow the users to access the index page only
+// if they aren't signed in.*/
+//==============================================================
+router.use('/', function(req, res, next){
+  if(!req.user){
+    res.redirect('index');
+  }
+  next();
+
+});
 	
 // Buyer Routes
 // =============================================================
@@ -31,7 +44,7 @@ module.exports = function(app) {
     //For google login testing purposes we are rendering log-in here, once we have
     //the matches page working we can update this.
     res.render('log-in', {user: {name: req.user.displayName,
-                                    image: req.user._json.image.url}});
+                                    image: req.user.image}});
     console.log("matching page load successful");
   });
 
