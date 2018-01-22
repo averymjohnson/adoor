@@ -203,3 +203,18 @@ background-image: linear-gradient(314deg, #ffcedd 0%, #ffffff 100%);
     width: 100%;
 }
 
+#profileCreateStart{
+    width: 30%;
+    margin:auto;
+}
+
+#takeQuizAppear{
+    display:none;
+    width: 100%;
+    margin:auto;
+    align-items: center;
+}
+
+#quizBanner{
+    font-size: 25px;
+}
