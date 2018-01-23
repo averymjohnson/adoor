@@ -40,14 +40,14 @@ router.route('/facebook')
 }));
 
 // process the signup form
-router.route('/signup')
+router.route('/signUpWithQuiz')
     .post(passport.authenticate('local-signup', {
         successRedirect : '/my-matches', // redirect to the secure profile section
         failureRedirect : '/profile-create', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
 }));
 
-router.route('/login')
+router.route('/log-in')
 	.post(passport.authenticate('local-login', {
 	        successRedirect : '/matching', // redirect to the secure profile section
 	        failureRedirect : '/log-in', // redirect back to the signup page if there is an error
