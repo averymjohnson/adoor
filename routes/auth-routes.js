@@ -12,8 +12,8 @@ router.route('/google/callback')
 
 router.route('/google')
 	.get(passport.authenticate('google',{
-		scope:['https:www.googleapis.com/auth/userinfo.profile',
-			'https://googleapis.com/auth/userinfo.email']
+		scope:['https://www.googleapis.com/auth/userinfo.profile',
+			'https://www.googleapis.com/auth/userinfo.email']
 }));
 
 router.route('/twitter/callback')
@@ -38,5 +38,20 @@ router.route('/facebook')
 	.get(passport.authenticate('facebook',{
 		scope:['email']
 }));
+
+// process the signup form
+router.route('/signup')
+    .post(passport.authenticate('local-signup', {
+        successRedirect : '/my-matches', // redirect to the secure profile section
+        failureRedirect : '/profile-create', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+}));
+
+router.route('/login')
+	.post(passport.authenticate('local-login', {
+	        successRedirect : '/matching', // redirect to the secure profile section
+	        failureRedirect : '/log-in', // redirect back to the signup page if there is an error
+	        failureFlash : true // allow flash messages
+	    }));
 
 module.exports = router;

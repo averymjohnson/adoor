@@ -1,11 +1,13 @@
-body, html {
+
+/*I believe this was the old background image*/
+/*body, html {
     height: 100%;
     margin-bottom: 0;
     background-image: url("assets/img/bg_all.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
+}*/
 
 li {
     list-style-type: none; 
@@ -51,11 +53,11 @@ li {
     margin-top: 100px;
 }
 
-    #buttons {
-        margin-top: 35%;
-        margin-left: 9%;
-        align-items: center;
-    }
+#buttons {
+    margin-top: 35%;
+    margin-left: 9%;
+    align-items: center;
+}
 
 #submit{
     width:100px;
@@ -64,6 +66,14 @@ li {
     font-color: white;
     font-weight: bold;
 
+}
+
+#submitListing{
+    width:100px;
+    background-color: #C9283E;
+    border-color: #C9283E;
+    font-color: white;
+    font-weight: bold;
 }
 
 #sign {
@@ -203,10 +213,33 @@ background-image: linear-gradient(314deg, #ffcedd 0%, #ffffff 100%);
     width: 100%;
 }
 
+#profileCreateStart{
+    width: 30%;
+    margin:auto;
+}
+
+#takeQuizAppear{
+    width: 30%;
+    margin:auto;
+    align-items: center;
+    display:none;
+}
+
+#quizBanner{
+    font-size: 25px;
+}
+
 .social-media-login {
     margin: 20px;
 }
 
 .social {
     margin: 0px 10px;
+}
+
+#newListingMain{
+    margin-top:100px;
+    width: 30%;
+    margin: auto;
+    align-items: center;
 }

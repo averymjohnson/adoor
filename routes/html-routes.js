@@ -24,19 +24,16 @@ router.use('/', function(req, res, next){
   // index/home page
   app.get('/', function (req, res) {
     res.render('index');
-    console.log("working");
   });
 
   // log-in page
   app.get('/log-in', function (req, res) {
-    res.render('log-in');;
-    console.log("log in page load successful");
+    res.render('log-in');
   });
 
   // Bueyr Create a Profile Page/Fill out Survey
   app.get('/profile-create', function (req, res) {
-    res.render('signUpWithQuiz');;
-    console.log("profile create page load successful");
+    res.render('signUpWithQuiz');
   });
 
   // Matching Page
@@ -45,18 +42,15 @@ router.use('/', function(req, res, next){
     //the matches page working we can update this.
     res.render('log-in', {user: {name: req.user.displayName,
                                     image: req.user.image}});
-    console.log("matching page load successful");
   });
 
   // My Matches Page
   app.get('/my-matches', function (req, res) {
-    res.render('my-matches');;
-    console.log("my matches page load successful");
+    res.render('my-matches');
   });
 
   app.get('/its-a-match', function (req, res) {
-    res.render('adoor');;
-    console.log("it's a match page load successful");
+    res.render('adoor');
   });
 
   
@@ -68,7 +62,6 @@ router.use('/', function(req, res, next){
 
   // Upload New Listing Page
   app.get('/new-listing', function (req, res) {
-    res.render('adoor');;
-    console.log("add listing page load successful");
+    res.render('createListing');
   });
 };
