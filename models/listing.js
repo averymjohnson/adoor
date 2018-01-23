@@ -18,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         Listing.belongsTo(models.Community, {
         foreignKey: "listingId",
         targetKey: "id"
-        });
-      };  
-    }
-    });
-return Listing;
+      });
 
+      }
+    }
+  });
+  return Listing;
 };
