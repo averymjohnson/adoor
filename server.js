@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var path = require("path");
 var passport = require('passport');
 var session = require('express-session');
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 var app = express();
 var auth = require('./routes/auth-routes.js');
 
@@ -38,7 +38,7 @@ require('./routes/html-routes.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
