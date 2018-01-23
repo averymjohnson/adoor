@@ -40,7 +40,7 @@ router.use('/', function(req, res, next){
   app.get('/matching', function (req, res) {
     //For google login testing purposes we are rendering log-in here, once we have
     //the matches page working we can update this.
-    res.render('log-in', {user: {name: req.user.displayName,
+    res.render('my-matches', {user: {name: req.user.displayName,
                                     image: req.user.image}});
   });
 
