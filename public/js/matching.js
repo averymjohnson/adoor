@@ -7,4 +7,11 @@ $(document).ready(function() {
 		$('.carousel').carousel('next');
 	});
 
+	
+	$('.carousel').on('slide.bs.carousel', function () {
+  		$('.carousel').carousel({
+  			interval: false
+		});
+	});
+
 });
