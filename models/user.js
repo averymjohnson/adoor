@@ -22,9 +22,9 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        User.hasMany(models.Match, {
-          onDelete: "cascade"
-        });
+        // User.hasMany(models.Match, {
+        //   onDelete: "cascade"
+        // });
 
        // User.getAllUsers(){
           //return sequelize.findOne()
