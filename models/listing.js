@@ -15,10 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-      Listing.belongsTo(models.Community, {
-      foreignKey: "listingId",
-      targetKey: "id"
-    })
-  });
-  return Listing;
+        Listing.belongsTo(models.Community, {
+        foreignKey: "listingId",
+        targetKey: "id"
+        });
+      };  
+    }
+    });
+return Listing;
+
 };

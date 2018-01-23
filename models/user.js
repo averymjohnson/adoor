@@ -1,4 +1,6 @@
 'use strict';
+var bcrypt = require('bcrypt-nodejs');
+
 module.exports = (sequelize, DataTypes) => {
 
   var User = sequelize.define('user', {
@@ -22,7 +24,11 @@ module.exports = (sequelize, DataTypes) => {
         // associations can be defined here
         User.hasMany(models.Match, {
           onDelete: "cascade"
-        })
+        });
+
+       // User.getAllUsers(){
+          //return sequelize.findOne()
+        //}
       }
     }
   });
