@@ -1,13 +1,48 @@
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide">
+  <div class="container-fluid matches">
+    <div class="row">
+      <div class="col-lg-12">
+        <img class="logo" src="assets/img/logo.png">
+      </div>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide">
+    <div class="row displayHouses">
+ 
+      <div class="col-lg-12">
+    
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active listingModule">
+              <img class="d-block w-100 housePicture" src="assets/img/test1.jpg" alt="First slide">
+                  <div class="col-lg-12 moreInformation">
+                    <button type="button" class="btn btn-info matchbtn" data-toggle="collapse" data-target="#demo">More Information</button>
+                  </div>
+               <div id="demo" class="collapse out">
+                  <p>sq ft: 6000</p>
+                  <p>Bedrooms: 6</p>
+                  <p>Bathrooms: 7</p>
+               </div>
+              </div>
+            <div class="carousel-item listingModule">
+              <img class="d-block w-100 housePicture" src="assets/img/test2.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item listingModule">
+              <img class="d-block w-100 housePicture" src="assets/img/test3.jpg" alt="Third slide">
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
+  <div class="row decisions">
+      <div class="col-xs-6 decisionContainer">
+        <a class="decisionButton" role="button" data-slide="next">
+          <img class="swipeControls" src="assets/img/no-02.png">
+        </a>
+      </div>
+      <div class="col-xs-6 decisionContainer">
+        <a class="decisionButton" role="button" data-slide="next">
+          <img class="swipeControls" src="assets/img/yes-01.png">
+        </a>
+      </div>
   </div>
 </div>
+<script type="text/javascript" src="js/matching.js"></script>
