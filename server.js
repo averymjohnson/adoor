@@ -7,6 +7,9 @@ var port = process.env.PORT || 3000;
 var app = express();
 var auth = require('./routes/auth-routes.js');
 
+// Requiring our models for syncing
+var db = require("./models");
+
 
 SALT_WORK_FACTOR = 12;
 
@@ -33,6 +36,10 @@ app.set('view engine', 'handlebars');
 // Import routes and give the server access to them
 require('./routes/html-routes.js')(app);
 
-app.listen(port, function() {
-  console.log("App listening on PORT " + port);
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
