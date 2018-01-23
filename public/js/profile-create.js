@@ -6,4 +6,9 @@ $(document).ready(function(){
 		$("#profileCreateStart").css("display", "none");
 		$("#takeQuizAppear").css("display", "inline");
 	});
+
+
+	// $("#match").click(function(){
+		
+	// });
 });
