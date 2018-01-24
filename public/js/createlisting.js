@@ -1,5 +1,6 @@
 // img upload code
 $(document).ready( function() {
+    console.log("connection");
       $(document).on('change', '.btn-file :file', function() {
     var input = $(this),
       label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
@@ -32,4 +33,4 @@ $(document).ready( function() {
 
     $("#imgInp").change(function(){
         readURL(this);
-    }); 
+    });
