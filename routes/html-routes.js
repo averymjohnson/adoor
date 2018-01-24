@@ -4,6 +4,8 @@ var express = require('express');
 var router = express.Router();
 var db = require("../models");
 var bcrypt = require('bcrypt-nodejs');
+var LocalStorage = require('node-localstorage').LocalStorage;
+var localStorage = new LocalStorage('./scratch');
 
 // Routes
 // =============================================================
@@ -52,7 +54,7 @@ router.use('/', function(req, res, next){
     // console.log("Request display Name: " + req.user.displayName);
     // console.log("Request display Name: " + req.user.image);
     // console.log("Email: " + req.user.email);
-
+    console.log(localStorage.getItem('currentUserID'));
 
     db.listing.findAll({}).then(function(data) {
       var listings = [];

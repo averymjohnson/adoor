@@ -1,6 +1,8 @@
 
 var db = require("../models");
 var bcrypt = require('bcrypt-nodejs');
+var LocalStorage = require('node-localstorage').LocalStorage;
+var localStorage = new LocalStorage('./scratch');
 
 module.exports = function(app) {
 
@@ -12,7 +14,6 @@ module.exports = function(app) {
         .spread((user, created) => {
             console.log(user.get({
             plain: true
-
       }));
       if(created === true){
         res.redirect('/survey');
@@ -20,6 +21,8 @@ module.exports = function(app) {
       else{
       	res.redirect('/matching');
       }
+      localStorage.setItem("currentUserID", user.id);
+      console.log(user.id);
       console.log("First Time Created??: " + created);
       console.log("New user created and inserted in User table");
       });
@@ -43,7 +46,7 @@ module.exports = function(app) {
   })
 
   app.get("api/check-for-match", function(req, res) {
-    console.log(req.user.displayName)
+    console.log(req.body);
   });
 
 };
