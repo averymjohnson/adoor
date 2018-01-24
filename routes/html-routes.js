@@ -33,9 +33,14 @@ router.use('/', function(req, res, next){
     res.render('log-in');
   });
 
-  // Bueyr Create a Profile Page/Fill out Survey
+  // Buyer Create a Profile Page
   app.get('/profile-create', function (req, res) {
-    res.render('signUpWithQuiz');
+    res.render('signUp');
+  });
+
+  // Quiz page
+  app.get('/survey', function (req, res) {
+    res.render('quiz');
   });
 
   // Matching Page

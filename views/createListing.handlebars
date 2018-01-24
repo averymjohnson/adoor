@@ -1,4 +1,8 @@
 <!-- adoor logo header -->
+
+<script src="../public/js/uploadphoto.js"></script>
+<script src="../public/js/createlisting.js"></script>
+
 <div class= "row">
 	<div class="col-lg-12" align="center">
 		<img class= head src= assets/img/adoor-white.png>			
@@ -35,7 +39,7 @@
 				<div class="form-group">
 					<label for="sqft">Square Footage</label>
 					<input type="text"
-					class= "form-control" id="bed"
+					class= "form-control" id="sqft"
 					placeholder="3">
 				</div>
 
@@ -60,12 +64,17 @@
 				<!-- Upload Image form field -->
 				<div class="form-group">
 				    <label for="listingImage">Image Upload</label>
-				    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+				    <input type="file" class="form-control-file" id="img" aria-describedby="fileHelp">
 				    <small id="fileHelp" class="form-text text-muted">Please upload a picture of your listing</small>
 			  </div>
 			</form>		
 		</div>		
 	</div>
 	<!-- add listing submit button -->
-		  	<button type="submit" class="btn btn-primary" id="submitListing">Submit Listing</button>
+			<a href="/api/listing">
+				<button type="submit" class="btn btn-primary" id="submitListing">Submit Listing</button>
+			</a>
+		  	
 </div>
+
+<script src="js/createlisting.js"></script>
