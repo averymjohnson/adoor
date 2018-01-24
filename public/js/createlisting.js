@@ -1,29 +1,35 @@
-var mysql = require("mysql");
+// img upload code
+$(document).ready( function() {
+      $(document).on('change', '.btn-file :file', function() {
+    var input = $(this),
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [label]);
+    });
 
+    $('.btn-file :file').on('fileselect', function(event, label) {
+        
+        var input = $(this).parents('.input-group').find(':text'),
+            log = label;
+        
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+      
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#img-upload').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "2203",
-  database: "adoor_db"
-});
-
-connection.connect(function(err){
-	console.log("Connected");
-});
-$("#submit").click(function(){
-	console.log("worked");
-	runSend();
-});
-
-function runSend(){
-	var address = $("#address").val().trim()
-	.then(function(answer){
-		var responses = [[answer.address]];
-		var query = "INSERT INTO adoor_db.listings (address) VALUES ?"
-		connection.query(query, [responses], function(err,res){
-			console.log("Added")
-	});
-
-});
+    $("#imgInp").change(function(){
+        readURL(this);
+    }); 
