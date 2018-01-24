@@ -13,11 +13,10 @@ $(document).ready(function() {
 
 			$.get("/api/check-for-match", currentListing, function() {
     		
-			});
-    		// }).then(function() {
-    		// 	console.log("checking for match");
-		    //     $('.carousel').carousel('next');
-    		// });
+    		}).then(function() {
+    			console.log("checking for match");
+		        $('.carousel').carousel('next');
+    		});
 
 		} else {
 			$('.carousel').carousel('next');
