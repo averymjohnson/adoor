@@ -25,5 +25,14 @@ module.exports = function(app) {
       });
   	});
 
+  	// POST route for saving a new post
+  app.post("/api/listing", function(req, res) {
+    db.listing.create({address: req.address, city: req.city, zipcode: req.zip, bedrooms: req.bed,
+    	bathrooms: req.baths, price: req.price}).then(function(){
+    		console.log("Listing Added to the database!");
+    	});
+    res.redirect('/matching');//this should be changed once to my-listings page.
+  });
+
 };
 
