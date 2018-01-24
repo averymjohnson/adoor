@@ -7,7 +7,6 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 var auth = require('./routes/auth-routes.js');
 var api = require('./routes/api-routes.js');
-var favicon = require('serve-favicon');
 
 
 // Requiring our models for syncing
@@ -20,7 +19,6 @@ app.use(express.static(process.cwd() + '/public'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(favicon(path.join(__dirname, 'public', 'assets', 'img', 'favicon.ico')));
 
 //Passport and Express-Session logic
 app.use(session({secret: 'anything'}));

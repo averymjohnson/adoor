@@ -42,5 +42,9 @@ module.exports = function(app) {
     })
   })
 
+  app.get("api/check-for-match", function(req, res) {
+    console.log(req.user.displayName)
+  });
+
 };
 

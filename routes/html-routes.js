@@ -47,25 +47,27 @@ router.use('/', function(req, res, next){
   app.get('/matching', function (req, res) {
 
 
-    res.render('matching', {user: {name: req.user.displayName,
-                                    image: req.user.image}});
-    console.log("Request display Name: " + req.user.displayName);
-    console.log("Request display Name: " + req.user.image);
-    console.log("Email: " + req.user.email);
+    // res.render('matching', {user: {name: req.user.displayName,
+    //                                 image: req.user.image}});
+    // console.log("Request display Name: " + req.user.displayName);
+    // console.log("Request display Name: " + req.user.image);
+    // console.log("Email: " + req.user.email);
 
 
     db.listing.findAll({}).then(function(data) {
       var listings = [];
+      //push listing objects into listings array
       data.forEach(function(element) {
         listings.push(element.dataValues);
       })
+      //randomly sort listings
+      listings.sort(function(a,b) { return 0.5 - Math.random() });
+      //prepare object
       var hbsObject = {
         listings: listings
       };
-
-    console.log(hbsObject);
-
-    res.render('matching', hbsObject);
+      //render page
+     res.render('matching', hbsObject);
     });
 
   });

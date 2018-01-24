@@ -2,8 +2,8 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('matches', [{
-      userId: 1,
+  return queryInterface.bulkInsert('matches', [{
+    userId: 1,
       listingId: 1
     },
     {
