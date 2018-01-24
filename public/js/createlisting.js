@@ -9,7 +9,6 @@ $(document).ready(function() {
   var priceInput = $("#price");
   var imgInput = $("#img");
 
-
   // Adding an event listener for when the form is submitted
   $("#submitListing").on("submit", handleFormSubmit);
 
