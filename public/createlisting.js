@@ -1,58 +1,46 @@
-//  var mysql = require("mysql"); 
+
+// image input
+
+$(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 
+
+
+
+
+
+
+
 
  
-
-//  var connection = mysql.createConnection({ 
-//    host: "localhost", 
-//    port: 3306, 
-//    user: "root", 
-//    password: "2203", 
-//    database: "adoor_db" 
-//  }); 
-
-//  $("#submit").click(function(){
-
-// connection.connect(function(err){ 
-//  	alert("Connected"); 
-
-//  	}); 
-// });
-$("#submit").click(function(){
-
-
-	var addressR = $("#address").val().trim();
-	var cityR = $("#city").val().trim();
-	var zipCodeR = $("#zip").val().trim();
-	var bedR = $("#bed").val().trim(); 
-	var bathR = $("#bath").val().trim();
-	var priceR = $("#price").val().trim();
-	var imgR = $("#imginp");
-
-
-	var responses = [
-	{
-		"address" = addressR,
-		"city" = cityR,
-		"zipCode" = zipCodeR,
-		"bed" = bedR,
-		"bath" = bathR,
-		"price" = priceR,
-		"img" = imgR
-			}
-		];
-
-	module.exports = responses;
-
-// 	$.then(function(){
-// 		var listing = [[responses.address, responses.city, responses.zipCode, responses.bed, responses.bath, responses.price, responses.img]];
-// 		var query = "INSERT INTO adoor_db.listings (address, city, zipCode, bed, bath, price, img) VALUES ?"
-// 		connection.query(query, [listing], function(err, res){
-// 			alert("Listing is Added");
-// 		});
-
-// 	connection.end();
-
-// 	})
-// }
-
-
