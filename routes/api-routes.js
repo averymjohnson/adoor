@@ -15,7 +15,7 @@ module.exports = function(app) {
 
       }));
       if(created === true){
-        res.redirect('/log-in');
+        res.redirect('/survey');
       }
       else{
       	res.redirect('/matching');
