@@ -45,6 +45,15 @@ router.use('/', function(req, res, next){
 
   // Matching Page
   app.get('/matching', function (req, res) {
+
+
+    res.render('matching', {user: {name: req.user.displayName,
+                                    image: req.user.image}});
+    console.log("Request display Name: " + req.user.displayName);
+    console.log("Request display Name: " + req.user.image);
+    console.log("Email: " + req.user.email);
+
+
     db.listing.findAll({}).then(function(data) {
       var listings = [];
       data.forEach(function(element) {
@@ -58,6 +67,7 @@ router.use('/', function(req, res, next){
 
     res.render('matching', hbsObject);
     });
+
   });
 
   // My Matches Page
