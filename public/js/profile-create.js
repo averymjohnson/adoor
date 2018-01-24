@@ -4,11 +4,11 @@ $(document).ready(function(){
 	$("#quiz").click(function(){
 		console.log("working");
 		$("#profileCreateStart").css("display", "none");
-		$("#takeQuizAppear").css("display", "inline");
+		$("#takeQuizAppear").css("display", "block");
 	});
 
 
-	// $("#match").click(function(){
+	$("#match").click(function(){
 		
-	// });
+	});
 });

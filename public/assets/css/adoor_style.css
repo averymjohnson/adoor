@@ -64,7 +64,7 @@ li {
 }
 
 #submitListing{
-    width:100px;
+    width:200px;
     background-color: #C9283E;
     border-color: #C9283E;
     font-color: white;
@@ -218,7 +218,6 @@ background-image: linear-gradient(314deg, #ffcedd 0%, #ffffff 100%);
     width: 30%;
     margin:auto;
     align-items: center;
-    display:none;
 }
 
 #quizBanner{
@@ -283,4 +282,41 @@ height: 120%
 
 .moreInformation {
     margin: 20px;
+}
+
+.myMatchesHeader{
+    font-size: 30px;
+}
+
+.myMatchesContainer{
+    width: 60%;
+    margin: auto;
+}
+
+
+.newListingButton{
+    color: ffffff;
+}
+
+.my-matches-button{
+    height: 60px;
+}
+
+.logout{
+    height: 35px;
+}
+
+
+.new-listing-button{
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.new-listing-btn{
+    text-decoration: none;
+}
+
+.backbtn{
+    margin: auto;
+    height: 50px;
 }
