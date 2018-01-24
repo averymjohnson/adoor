@@ -2,6 +2,7 @@
 var path = require("path");
 var express = require('express');
 var router = express.Router();
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -38,10 +39,13 @@ router.use('/', function(req, res, next){
 
   // Matching Page
   app.get('/matching', function (req, res) {
+    db.Listing.all(function(data) {
+    var hbsObject = {
+      listings: data
+    };
     //For google login testing purposes we are rendering log-in here, once we have
     //the matches page working we can update this.
-    res.render('matching', {user: {name: req.user.displayName,
-                                    image: req.user.image}});
+    res.render('matching', hbsObject);
   });
 
   // My Matches Page
