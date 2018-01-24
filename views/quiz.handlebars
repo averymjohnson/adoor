@@ -1,55 +1,10 @@
-
-<!-- Header Image -->
-<div class= "row">
-	<div class="col-lg-12" align="center">
-		<img class= head src= assets/img/adoor-white.png>			
-	</div>
-</div>
-
-<!-- main div container that will hide once they sumbit to take the quiz -->
-<div id="containerMain">
-	<div id="profileCreateStart"> 
-		<!-- Create Profile Personal Information -->
-		<div id="container">
-			<div class= row>
-				<div class = "col-lg-12" id = "back">
-					<h1 id="sign">Sign Up</h1>
-					<br>
-					<form>
-					  <div class="form-group">
-					    <label for="firstName">First Name</label>
-					    <input type="text" class="form-control" id="firstName"  placeholder="First Name">
-					  </div>
-					  <div class="form-group">
-					    <label for="lastName">Last Name</label>
-					    <input type="text" class="form-control" id="lastName"  placeholder="Last Name">
-					  </div>
-					  <div class="form-group">
-					    <label for="exampleInputEmail1">Email address</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-					  </div>
-					  <div class="form-group">
-					    <label for="exampleInputPassword1">Password</label>
-					    <input type="password" class="form-control" id="password" placeholder="Password">
-					  </div>
-					  <div class="form-group">
-					    <label for="exampleInputPassword1">Confirm Password</label>
-					    <input type="password" class="form-control" id="conpw" placeholder="Confirm Password">
-					  </div>
-					  <div class="form-group">
-					  	<label for="tel-input" class="col-2 col-form-label">Telephone</label>
-					    <input class="form-control" type="tel" id="phone" placeholder="Telephone Number">
-					  </div>
-					  <br>
-					  <button type="submit" class="btn btn-primary" id="quiz">Take Quiz</button>
-					</form>
-				</div>
-			</div>
+	<!-- Header Image -->
+	<div class= "row">
+		<div class="col-lg-12" align="center">
+			<img class= head src= assets/img/adoor-white.png>			
 		</div>
-	</div>
+	</div><br><br>
 
-
-	<!-- use CSS to make quiz appear after they select to take the quiz -->
 	<div id="takeQuizAppear">
 		<!-- Create Profile Quiz -->
 		<div>
@@ -210,11 +165,10 @@
 						    </select>
 					  </div>
 					  <!-- Submit button -->
-					  <button type="submit" class="btn btn-primary" id="match">See My Matches!</button>
+					  <a href="/matching">
+					  	<button type="button" class="btn btn-primary" id="match">See My Matches!</button>
+					  </a>	  
 				</form>
 			</div>
 		</div>
 	</div>
-</div>
-
-<script src="js/profile-create.js"></script>

@@ -2,6 +2,8 @@
 var path = require("path");
 var express = require('express');
 var router = express.Router();
+var db = require("../models");
+var bcrypt = require('bcrypt-nodejs');
 
 // Routes
 // =============================================================
@@ -31,17 +33,33 @@ router.use('/', function(req, res, next){
     res.render('log-in');
   });
 
-  // Bueyr Create a Profile Page/Fill out Survey
+  // Buyer Create a Profile Page
   app.get('/profile-create', function (req, res) {
-    res.render('signUpWithQuiz');
+    res.render('signUp');
+  });
+
+  // Quiz page
+  app.get('/survey', function (req, res) {
+    res.render('quiz');
   });
 
   // Matching Page
   app.get('/matching', function (req, res) {
-    //For google login testing purposes we are rendering log-in here, once we have
-    //the matches page working we can update this.
+
     res.render('matching', {user: {name: req.user.displayName,
                                     image: req.user.image}});
+    console.log("Request display Name: " + req.user.displayName);
+    console.log("Request display Name: " + req.user.image);
+    console.log("Email: " + req.user.email);
+
+    req.passwordHash = bcrypt.hashSync(req.password);         
+          
+    db.user.create({firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, password: req.passwordHash}).then(function(dbUser) {
+      console.log("New user created and inserted in User table");
+    });
+
+      
+
   });
 
   // My Matches Page

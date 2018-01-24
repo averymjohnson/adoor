@@ -1,8 +1,19 @@
 
+var db = require("../models");
+var bcrypt = require('bcrypt-nodejs');
 
-var responses = require("../public/createlisting.js");
+module.exports = function(app) {
 
-module.exports = function(app){
+	app.post("/api/users", function(req, res) {
+		
+		req.passwordHash = bcrypt.hashSync(req.password);         
+          
+	    db.User.create({req.email, req.passwordHash}).then(function(dbUser) {
+	      res.json(dbUser);
+	    });
 
-	app.get("/api/listing")
-}
+	    console.log("New user created and inserted in User table");
+  	});
+
+};
+
