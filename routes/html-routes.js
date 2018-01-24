@@ -45,30 +45,19 @@ router.use('/', function(req, res, next){
 
   // Matching Page
   app.get('/matching', function (req, res) {
+    db.listing.findAll({}).then(function(data) {
+      var listings = [];
+      data.forEach(function(element) {
+        listings.push(element.dataValues);
+      })
+      var hbsObject = {
+        listings: listings
+      };
 
-    res.render('matching', {user: {name: req.user.displayName,
-                                    image: req.user.image}});
-    console.log("Request display Name: " + req.user.displayName);
-    console.log("Request display Name: " + req.user.image);
-    console.log("Email: " + req.user.email);
+    console.log(hbsObject);
 
- 
-      // req.passwordHash = bcrypt.hashSync(req.password);         
-          
-      // db.user.findOrCreate({where: {email: req.user.email} ,defaults: {firstName: req.user.firstName, lastName: req.user.lastName, password: req.passwordHash}})//.then(function(dbUser) {
-      //   .spread((user, created) => {
-      //       console.log(user.get({
-      //       plain: true
-
-      // }));
-      // if(created === true){
-      //   res.render('log-in');
-      // }
-      // console.log("First Time Created??: " + created);
-      // console.log("New user created and inserted in User table");
-      // });
-
-
+    res.render('matching', hbsObject);
+    });
   });
 
   // My Matches Page
@@ -80,7 +69,6 @@ router.use('/', function(req, res, next){
     res.render('adoor');
   });
 
-  
 
  // Seller Routes
  // ==========================================================
