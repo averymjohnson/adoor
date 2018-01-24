@@ -9,6 +9,7 @@ $(document).ready(function() {
   var priceInput = $("#price");
   var imgInput = $("#img");
 
+
   // Adding an event listener for when the form is submitted
   $("#submitListing").on("submit", handleFormSubmit);
 
@@ -30,9 +31,9 @@ $(document).ready(function() {
       zip: zipInput
         .val()
         .trim(),
-      sqft: sqftInput
-        .val()
-        .trim(),
+      // sqft: sqftInput
+      //   .val()
+      //   .trim(),
       bed: bedInput
         .val()
         .trim(),
@@ -41,6 +42,15 @@ $(document).ready(function() {
         .trim(),
       price: priceInput
         .val()
-        .trim(),
-      img: imgInput
+        .trim()//,
+      //img: imgInput
     };
+
+    //Add the listing information to the database
+    createListing(newAcct);
+
+ // Submits a new listing object to the api-routes to be posted in the db
+  function createListing(listing) {
+    $.post("/api/listing", listing, function() {
+    });
+  }
