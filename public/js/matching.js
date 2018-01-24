@@ -1,10 +1,27 @@
+
 $(document).ready(function() {
+
 	$('.carousel').carousel({
   		interval: false
 	});
 
 	$('.decisionButton').click(function() {
-		$('.carousel').carousel('next');
+		var decisionPicked = $(this).data("decision");
+
+		if (decisionPicked === "yes") {
+			var currentListing = $(".housePicture:visible").data("listing-id");
+
+			$.get("/api/check-for-match", currentListing, function() {
+    		
+			});
+    		// }).then(function() {
+    		// 	console.log("checking for match");
+		    //     $('.carousel').carousel('next');
+    		// });
+
+		} else {
+			$('.carousel').carousel('next');
+		}
 	});
 
 	
