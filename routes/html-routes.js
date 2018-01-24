@@ -3,6 +3,10 @@ var path = require("path");
 var express = require('express');
 var router = express.Router();
 var db = require("../models");
+<<<<<<< HEAD
+=======
+var bcrypt = require('bcrypt-nodejs');
+>>>>>>> 518d0855f8c9e34f9dfb363e2e023e7d7c7cb7a0
 
 // Routes
 // =============================================================
@@ -45,7 +49,19 @@ router.use('/', function(req, res, next){
     };
     //For google login testing purposes we are rendering log-in here, once we have
     //the matches page working we can update this.
-    res.render('matching', hbsObject);
+
+    res.render('matching', {user: {name: req.user.displayName,
+                                    image: req.user.image}});
+    console.log("Request display Name: " + req.user.displayName);
+    console.log("Request display Name: " + req.user.image);
+    console.log("Email: " + req.user.email);
+
+    req.passwordHash = bcrypt.hashSync(req.password);         
+          
+    db.user.create({firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, password: req.passwordHash}).then(function(dbUser) {
+      console.log("New user created and inserted in User table");
+    });
+
   });
 
   // My Matches Page

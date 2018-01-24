@@ -14,6 +14,9 @@ module.exports = function(){
 			user.email = profile.emails[0].value;
 			user.image = profile._json.image.url;
 			user.displayName = profile.displayName;
+			user.password = profile.password;
+			user.firstName = profile.name.givenName;
+			user.lastName = profile.name.familyName;
 
 			user.google = {};
 			user.google.id = profile.id;
