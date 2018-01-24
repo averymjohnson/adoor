@@ -14,4 +14,6 @@ $(document).ready(function() {
 		});
 	});
 
+	$('.listingModule').first().addClass('active');
+
 });
