@@ -52,13 +52,22 @@ router.use('/', function(req, res, next){
     console.log("Request display Name: " + req.user.image);
     console.log("Email: " + req.user.email);
 
-    req.passwordHash = bcrypt.hashSync(req.password);         
+ 
+      // req.passwordHash = bcrypt.hashSync(req.password);         
           
-    db.user.create({firstName: req.user.firstName, lastName: req.user.lastName, email: req.user.email, password: req.passwordHash}).then(function(dbUser) {
-      console.log("New user created and inserted in User table");
-    });
+      // db.user.findOrCreate({where: {email: req.user.email} ,defaults: {firstName: req.user.firstName, lastName: req.user.lastName, password: req.passwordHash}})//.then(function(dbUser) {
+      //   .spread((user, created) => {
+      //       console.log(user.get({
+      //       plain: true
 
-      
+      // }));
+      // if(created === true){
+      //   res.render('log-in');
+      // }
+      // console.log("First Time Created??: " + created);
+      // console.log("New user created and inserted in User table");
+      // });
+
 
   });
 
