@@ -11,13 +11,16 @@ $(document).ready(function() {
 		if (decisionPicked === "yes") {
 			var currentListing = $(".housePicture:visible").data("listing-id");
 
-			$.get("/api/check-for-match", currentListing, function() {
+		// 	$.ajax("api/match/check", currentListing, function() {
     		
-    		}).then(function() {
-    			console.log("checking for match");
-		        $('.carousel').carousel('next');
-    		});
+  //   		}).then(function() {
+  //   			console.log("checking for match");
+		//         $('.carousel').carousel('next');
+  //   		});
 
+		// } else {
+			console.log(currentListing);
+			$('.carousel').carousel('next');
 		} else {
 			$('.carousel').carousel('next');
 		}
