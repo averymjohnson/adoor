@@ -6,7 +6,7 @@
         
     </div>
 	<div class="col-lg-4" align="center">
-		<img class= "head" src="assets/img/adoor-white.png">
+		<img class= "head logo" src="assets/img/logo.png">
 	</div>
     <div class="col-lg-4">
         
@@ -24,17 +24,17 @@
     </thead> 
 
     <tbody> 
-        {{#listings}} 
+        {{#each listings}} 
         <tr> 
-            <td>{{address}}</td> 
-            <td>{{city}}</td> 
-            <td>{{bedrooms}}</td> 
-            <td>{{bathrooms}}</td> 
-            <td>{{price}}</td> 
-            <td>{{picturePath}}</td> 
+            <td>{{this.address}}</td> 
+            <td>{{this.city}}</td> 
+            <td>{{this.bedrooms}}</td> 
+            <td>{{this.bathrooms}}</td> 
+            <td>{{this.price}}</td> 
+            <td>{{this.picturePath}}</td> 
 
         </tr> 
-        {{/listings}} 
+        {{/each}} 
     </tbody> 
 </table>
 		
