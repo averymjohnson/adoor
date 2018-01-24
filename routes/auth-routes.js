@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.route('/google/callback')
 	.get(passport.authenticate('google',{
-		successRedirect: '/matching/',
+		successRedirect: '/matching',
 		failure: '/error/'
 }));
 
@@ -18,7 +18,7 @@ router.route('/google')
 
 router.route('/twitter/callback')
 	.get(passport.authenticate('twitter',{
-		successRedirect: '/matching/',
+		successRedirect: '/matching',
 		failure: '/error/'
 }));
 
@@ -29,7 +29,7 @@ router.route('/twitter')
 
 router.route('/facebook/callback')
 	.get(passport.authenticate('facebook',{
-		successRedirect: '/matching/',
+		successRedirect: '/matching',
 		failure: '/error/'
 }));
 
@@ -48,7 +48,7 @@ router.route('/signUpWithQuiz')
 }));
 
 router.route('/log-in')
-	.post(passport.authenticate('local-login', {
+	.post(passport.authenticate('local', {
 	        successRedirect : '/matching', // redirect to the secure profile section
 	        failureRedirect : '/log-in', // redirect back to the signup page if there is an error
 	        failureFlash : true // allow flash messages
