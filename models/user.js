@@ -20,34 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
-        // User.hasMany(models.Match, {
-        //   onDelete: "cascade"
-        // });
-
-       //  function getAllUsers(){
-       //    return User.findAll({
-       //    });
-       //  }
-
-       // function getUserByEmail(email){
-       //    return User.findOne({
-       //      where:{
-       //        email: email
-       //      }
-       //    }); //end of query
-       //  }//end of getUserByEmail function
-
-       //  function getUserById(id){
-       //    return User.findById(id); //end of query
-       //  }//end of getUserByEmail function
-
-       //  function createUser(user){
-       //    user.passwordHash = bcrypt.hashSync(user.password);
-       //    User.create({ email: user.email, password: user.passwordHash
-       //    });//end of query
-       //    console.log("New user created and inserted in User table");
-       //  }//end of createUser function
+      
       }
     }
   });

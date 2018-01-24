@@ -18,11 +18,11 @@ module.exports = {
       lastName: "Jones",
       email: "WhoIsMikeJones@gmail.com",
       password: "backthen",
-      caresAboutSchools: 0,
-      caresAboutGroceryStores: 0,
-      caresAboutParks: 0,
-      caresAboutCrime: 0,
-      caresAboutHospitals: 0
+      caresAboutSchools: 1,
+      caresAboutGroceryStores: 1,
+      caresAboutParks: 1,
+      caresAboutCrime: 1,
+      caresAboutHospitals: 1
     },
     {
       firstName: "Tom",
@@ -30,10 +30,10 @@ module.exports = {
       email: "Goat@gamil.com",
       password: "thegreatest",
       caresAboutSchools: 0,
-      caresAboutGroceryStores: 0,
+      caresAboutGroceryStores: 1,
       caresAboutParks: 0,
       caresAboutCrime: 0,
-      caresAboutHospitals: 0
+      caresAboutHospitals: 1
     },
     {
       firstName: "Danny",
@@ -42,7 +42,7 @@ module.exports = {
       password: "kcforever@gmail.com",
       caresAboutSchools: 0,
       caresAboutGroceryStores: 0,
-      caresAboutParks: 0,
+      caresAboutParks: 1,
       caresAboutCrime: 0,
       caresAboutHospitals: 0
     },
@@ -54,7 +54,7 @@ module.exports = {
       caresAboutSchools: 0,
       caresAboutGroceryStores: 0,
       caresAboutParks: 0,
-      caresAboutCrime: 0,
+      caresAboutCrime: 1,
       caresAboutHospitals: 0
     },
     ], {});

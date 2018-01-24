@@ -11,7 +11,7 @@ module.exports = {
           bedrooms: 6,
           bathrooms: 2,
           price: 150000,
-          picturePath: "assets/img/test1.jpg",
+          picturePath: "assets/img/test6.jpg",
           sellerEmail: "hello3@gmail.com"
       },
       {
@@ -23,7 +23,7 @@ module.exports = {
           bedrooms: 5,
           bathrooms: 3,
           price: 100000,
-          picturePath: "assets/img/test1.jpg",
+          picturePath: "assets/img/test2.jpg",
           sellerEmail: "hello4@gmail.com"
       },
       {
@@ -35,7 +35,7 @@ module.exports = {
           bedrooms: 2,
           bathrooms: 1,
           price: 100000,
-          picturePath: "assets/img/test1.jpg",
+          picturePath: "assets/img/test3.jpg",
           sellerEmail: "hello5@gmail.com"
       },
       {
@@ -47,7 +47,7 @@ module.exports = {
           bedrooms: 4,
           bathrooms: 2,
           price: 150000,
-          picturePath: "assets/img/test1.jpg",
+          picturePath: "assets/img/test4.jpg",
           sellerEmail: "hello6@gmail.com"
       },
       {
@@ -59,7 +59,7 @@ module.exports = {
           bedrooms: 2,
           bathrooms: 1,
           price: 33000,
-          picturePath: "assets/img/test2.jpg",
+          picturePath: "assets/img/test5.jpg",
           sellerEmail: "hello3@gmail.com"        
       }], {});
   },
