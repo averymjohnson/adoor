@@ -37,14 +37,6 @@ module.exports = function(app) {
     res.redirect('/matching');//this should be changed once to my-listings page.
   });
 
-// pull my-matches from the db
-  app.get("/api/my-matches", function(req, res) {
-    db.match.findAll().then(function(myMatch){
-      res.json(myMatch);
-      console.log("logged matches");
-    })
-  })
-
   app.post("/api/match/check", function(req, res) {
     console.log(req.body);
     res.end();

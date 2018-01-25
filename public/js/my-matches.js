@@ -1,6 +1,15 @@
 $(document).ready(function() {
-  function myMatches(match) {
-    $.get("/api/my-matches", match, function() {
-    	});
- 	};
- });
+	  // $.ajax({
+	  // url:"api/my-matches",
+	  // data: data,
+	  // success: success,
+	  // dataType: function(){
+	  // console.log("info here");
+	  // }
+	  // });
+
+// 	$.get("/api/my-matches", function(data){
+// 	console.log(data)
+// })
+});
+
