@@ -30,15 +30,45 @@ module.exports = function(app) {
 
   	// POST route for saving a new post
   app.post("/api/listing", function(req, res) {
-    db.listing.create({address: req.address, city: req.city, zipcode: req.zip, bedrooms: req.bed,
-    	bathrooms: req.baths, price: req.price}).then(function(){
+    console.log(req.body);
+    db.Listing.create({
+      address: req.address, 
+      city: req.city, 
+      zipcode: req.zip, 
+      bedrooms: req.bed,
+    	bathrooms: req.baths, 
+      price: req.price,
+      img: req.img
+      })
+    .then(function(dbListing){
+        res.json(dbListing);
     		console.log("Listing Added to the database!");
     	});
     res.redirect('/matching');//this should be changed once to my-listings page.
   });
 
   app.post("/api/match/check", function(req, res) {
-    console.log(req.body);
+    var userId = localStorage.getItem('currentUserID');
+    var listingId = req.body.listingId;
+
+    db.user.findOne({
+      where: {
+        id: userId
+      }
+    }).then(function(user) {
+      console.log(user);      
+    });
+    
+    function createMatch() {
+      db.match.create({
+        userId: userId,
+        listingId: listingId
+      }).then(function(){});
+    }
+    
+
+
+    console.log(`user: ${userId} likes listing: ${listingId}`);
     res.end();
   })
 

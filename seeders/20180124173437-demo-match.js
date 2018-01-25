@@ -24,7 +24,7 @@ module.exports = {
     },
     {
       userId: 2,
-      listingId: 5
+      listingId: 3
     },
     {
       userId: 3,
