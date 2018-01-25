@@ -8,20 +8,22 @@ $(document).ready(function() {
 	$('.decisionButton').click(function() {
 		var decisionPicked = $(this).data("decision");
 
-		if (decisionPicked === "yes") {
-			var currentListing = $(".housePicture:visible").data("listing-id");
+			if (decisionPicked === "yes") {
+				var currentListing = $(".housePicture:visible").data("listing-id");
 
-			$.post("/api/match/check", currentListing, function(data, status) {
-    		
-    		}).then(function() {
-    			console.log("checking for match");
-		        $('.carousel').carousel('next');
-    		});
+				$.post("/api/match/check", {
+					listingId: currentListing
+				}, function(data, status) {
+	    			
+	    		}).then(function() {
+	    			console.log("checking for match for " + currentListing);
+	    		});
+			} 
+			
+		$('.carousel').carousel('next');
 
-		} else {
-			$('.carousel').carousel('next');
-		}
-	});
+		});
+
 
 	
 	$('.carousel').on('slide.bs.carousel', function () {
