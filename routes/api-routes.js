@@ -63,6 +63,7 @@ module.exports = function(app) {
         listingId: listingId
       }).then(function(){});
     }
+    
 
 
     console.log(`user: ${userId} likes listing: ${listingId}`);
