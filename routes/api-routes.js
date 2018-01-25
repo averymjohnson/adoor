@@ -38,17 +38,17 @@ module.exports = function(app) {
   });
 
 // pull my-matches from the db
-  app.get("api/my-matches", function(req, res) {
+  app.get("/api/my-matches", function(req, res) {
     db.match.findAll().then(function(myMatch){
       res.json(myMatch);
       console.log("logged matches");
     })
   })
 
-  app.get("api/match/check", function(req, res) {
+  app.post("/api/match/check", function(req, res) {
     console.log(req.body);
     res.end();
-  });
+  })
 
 };
 
