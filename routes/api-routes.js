@@ -46,7 +46,26 @@ module.exports = function(app) {
   })
 
   app.post("/api/match/check", function(req, res) {
-    console.log(req.body);
+    var userId = localStorage.getItem('currentUserID');
+    var listingId = req.body.listingId;
+
+    db.user.findOne({
+      where: {
+        id: userId
+      }
+    }).then(function(user) {
+      console.log(user);      
+    });
+    
+    function createMatch() {
+      db.match.create({
+        userId: userId,
+        listingId: listingId
+      }).then(function(){});
+    }
+
+
+    console.log(`user: ${userId} likes listing: ${listingId}`);
     res.end();
   })
 
