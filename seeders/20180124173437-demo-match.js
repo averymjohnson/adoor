@@ -63,7 +63,7 @@ module.exports = {
       listingId: 3
     },
     {
-      userId: 7,
+      userId: 6,
       listingId: 5
     },
     ], {});
