@@ -31,23 +31,126 @@ module.exports = function(app) {
 
   	// POST route for saving a new post
   app.post("/api/listing", function(req, res) {
-    db.listing.create({address: req.address, city: req.city, zipcode: req.zip, bedrooms: req.bed,
-    	bathrooms: req.baths, price: req.price}).then(function(){
+    console.log(req.body);
+    db.Listing.create({
+      address: req.address, 
+      city: req.city, 
+      zipcode: req.zip, 
+      bedrooms: req.bed,
+    	bathrooms: req.baths, 
+      price: req.price,
+      img: req.img
+      })
+    .then(function(dbListing){
+        res.json(dbListing);
     		console.log("Listing Added to the database!");
     	});
     res.redirect('/matching');//this should be changed once to my-listings page.
   });
 
-// pull my-matches from the db
-  app.get("/api/my-matches", function(req, res) {
-    db.match.findAll().then(function(myMatch){
-      res.json(myMatch);
-      console.log("logged matches");
-    })
-  })
-
   app.post("/api/match/check", function(req, res) {
-    console.log(req.body);
+    var userId = localStorage.getItem('currentUserID');
+    var listingId = req.body.listingId;
+    var userObj;
+    var community;
+
+    // findUser(userId);
+    findCommunityInfo(listingId).then(function(info){
+      console.log(info);
+      community = info;
+      return findUser(userId);
+    }).then(function(user){
+      console.log(user);
+      userObj = user;
+      return checkForCommunityMatch(userObj, community);
+    }).then(function(compatibilityScore){
+      console.log(`Your Compatability Score is: ${compatibilityScore}`);
+    }).catch(function(err) {
+      console.log(err);
+    });
+
+    // checkForCommunityMatch(6, 3);
+    
+
+
+    function findCommunityInfo(listingId) {
+      return new Promise(function(resolve, reject){
+          db.community.findOne({
+            where: {
+              listingId: listingId
+            }
+          }).then(function(communityInfo) { 
+            if (communityInfo !== undefined) {
+              resolve(community = communityInfo);
+            } else {
+              reject(console.log("cannot retrieve info"));
+            }
+          })
+        });
+      }
+
+    
+    function findUser(id) {
+      return new Promise(function(resolve, reject){
+        db.user.findOne({
+        where: {
+          id: id
+        }
+      }).then(function(user) {
+        if (user !== undefined) {
+        resolve(userObj = user);
+        } else {
+          reject(console.log("cannot retrieve info"))
+        }      
+      })
+      });
+    }
+    
+    function createMatch() {
+      db.match.create({
+        userId: userId,
+        listingId: listingId
+      }).then(function(){});
+    }
+
+    function checkForCommunityMatch(user, community) {
+      //checks user preferences vs. the listing's community score
+      var compatibilityScore = 0;
+      
+      if (
+        userObj.dataValues.caresAboutSchools === true && 
+        community.dataValues.bestSchoolRating > 8) 
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutGroceryStores === true && 
+        community.dataValues.groceryStoresCount > 0)
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutParks === true &&
+        community.dataValues.parksCount > 0)
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutCrime === true &&
+        community.dataValues.crimesCount < 30)
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutHospitals === true &&
+        community.dataValues.hospitalsCount > 0)
+      {
+        compatibilityScore++;
+      }
+
+      return compatibilityScore;
+    }
+
+    
+
+
+    console.log(`user: ${userId} likes listing: ${listingId}`);
     res.end();
   })
 

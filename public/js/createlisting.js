@@ -20,7 +20,7 @@ $(document).ready(function() {
       return;
     }
     // Constructing a newAcct object to hand to the database
-    var newAcct = {
+    var newListing = {
       address: addressInput
         .val()
         .trim(),
@@ -46,6 +46,8 @@ $(document).ready(function() {
     };
 
     //Add the listing information to the database
+    console.log(newAcct);
+
     createListing(newAcct);
 
  // Submits a new listing object to the api-routes to be posted in the db

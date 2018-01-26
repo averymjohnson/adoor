@@ -48,12 +48,6 @@ router.use('/', function(req, res, next){
   // Matching Page
   app.get('/matching', function (req, res) {
 
-
-    // res.render('matching', {user: {name: req.user.displayName,
-    //                                 image: req.user.image}});
-    // console.log("Request display Name: " + req.user.displayName);
-    // console.log("Request display Name: " + req.user.image);
-    // console.log("Email: " + req.user.email);
     console.log(localStorage.getItem('currentUserID'));
 
     db.listing.findAll({}).then(function(data) {
@@ -76,8 +70,33 @@ router.use('/', function(req, res, next){
 
   // My Matches Page
   app.get('/my-matches', function (req, res) {
-    res.render('my-matches');
+    var listingInfo = [];
+    var currentUserID = localStorage.getItem("currentUserID");
+    db.match.findAll({
+        where: {
+        userId: 2
+      }
+    }).then(function(data){
+      var listingArray = [];
+      data.forEach(function(element){
+      listingArray.push(element.dataValues.listingId);
+      })
+      findListings(listingArray);
+      console.log(listingInfo);
+      res.render('my-matches');
   });
+    function findListings(arr){
+      arr.forEach(function(element){
+        db.listing.findOne({
+          where: {id: element
+          }
+      }).then(function(data){
+        listingInfo.push(element.dataValues);
+      })    
+      })
+    }
+  });
+
 
   app.get('/its-a-match', function (req, res) {
     res.render('adoor');
