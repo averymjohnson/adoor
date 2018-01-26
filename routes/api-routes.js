@@ -31,7 +31,7 @@ module.exports = function(app) {
   	// POST route for saving a new post
   app.post("/api/listing", function(req, res) {
     console.log(req.body);
-    db.Listing.create({
+    db.listing.create({
       address: req.address, 
       city: req.city, 
       zipcode: req.zip, 
@@ -41,7 +41,7 @@ module.exports = function(app) {
       img: req.img
       })
     .then(function(dbListing){
-        res.json(dbListing);
+        // res.json(dbListing);
     		console.log("Listing Added to the database!");
     	});
     res.redirect('/matching');//this should be changed once to my-listings page.

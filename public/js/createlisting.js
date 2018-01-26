@@ -46,12 +46,14 @@ $(document).ready(function() {
     };
 
     //Add the listing information to the database
-    console.log(newAcct);
+    console.log(newListing);
 
-    createListing(newAcct);
+    createListing(newListing);
 
  // Submits a new listing object to the api-routes to be posted in the db
   function createListing(listing) {
     $.post("/api/listing", listing, function() {
     });
-  }
+  };
+};
+});

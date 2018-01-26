@@ -80,7 +80,7 @@ router.use('/', function(req, res, next){
       var listingArray = [];
       data.forEach(function(element){
       listingArray.push(element.dataValues.listingId);
-      })
+      });
       findListings(listingArray);
       console.log(listingInfo);
       res.render('my-matches');
@@ -92,10 +92,12 @@ router.use('/', function(req, res, next){
           }
       }).then(function(data){
         listingInfo.push(element.dataValues);
-      })    
-      })
+      });
+      });
+
     }
   });
+
 
 
   app.get('/its-a-match', function (req, res) {
