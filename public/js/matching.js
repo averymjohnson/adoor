@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-
+	var match = null;
 	$('.carousel').carousel({
   		interval: false
 	});
@@ -14,15 +14,38 @@ $(document).ready(function() {
 				$.post("/api/match/check", {
 					listingId: currentListing
 				}, function(data, status) {
-	    			
-	    		}).then(function() {
+					match = data;
+	    			console.log(match);
+	    		}).then(function(data) {
+	    			if (match !== null) {
+	    			  $("#matchAddress").html(`${match.address} ${match.city}, MO ${match.zipcode}`);
+	    			  var listingInfo = $("<p>");
+	    			  listingInfo.html(`bedrooms: ${match.bedrooms} bathrooms: ${match.bathrooms}`);
+	    			  $(".modal-body").prepend(listingInfo);
+	    			  initMap();
+
+	    			  function initMap() {
+				        var uluru = {lat: match.latitiude, lng: match.longitiude};
+				        var map = new google.maps.Map(document.getElementById('map'), {
+				          zoom: 4,
+				          center: uluru
+				        });
+				        var marker = new google.maps.Marker({
+				          position: uluru,
+				          map: map
+				        });
+				      }
+
+	    			  $('#matchModal').modal('show');
+	    			}
+
 	    			console.log("checking for match for " + currentListing);
 	    		});
 			} 
 			
 		$('.carousel').carousel('next');
 
-		});
+	});
 
 
 	
@@ -31,6 +54,10 @@ $(document).ready(function() {
   			interval: false
 		});
 	});
+
+	$('.modal').on('shown.bs.modal', function () {
+  		$('#myInput').trigger('focus')
+	})
 
 	$('.listingModule').first().addClass('active');
 
