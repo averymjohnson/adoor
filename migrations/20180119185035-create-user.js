@@ -21,8 +21,9 @@ module.exports = {
         type: Sequelize.STRING(320)
       },
       password: {
-        allowNull: false,
-        type: Sequelize.STRING(255)
+        allowNull: true,
+        type: Sequelize.STRING(255),
+        defaultValue: null
       },
       caresAboutSchools: {
         type: Sequelize.BOOLEAN,
