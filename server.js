@@ -6,6 +6,8 @@ var session = require('express-session');
 var PORT = process.env.PORT || 3000;
 var app = express();
 var auth = require('./routes/auth-routes.js');
+var flash=require("connect-flash");
+app.use(flash());
 // var api = require('./routes/api-routes.js');
 
 

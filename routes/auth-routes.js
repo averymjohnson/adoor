@@ -5,9 +5,9 @@ var router = express.Router();
 
 router.route('/google/callback')
 	.get(passport.authenticate('google',{
-		successRedirect: '/api/users',
-		failure: '/error/'
-}));
+		failureRedirect: '/error/'}), function(req, res){
+			res.redirect('/matching');
+		});
 
 
 router.route('/google')
@@ -47,11 +47,10 @@ router.route('/signUpWithQuiz')
         failureFlash : true // allow flash messages
 }));
 
-router.route('/log-in')
-	.post(passport.authenticate('local', {
-	        successRedirect : '/matching', // redirect to the secure profile section
-	        failureRedirect : '/log-in', // redirect back to the signup page if there is an error
-	        failureFlash : true // allow flash messages
-	    }));
+router.route('/local-login')
+	.post(passport.authenticate('local', { failureRedirect: '/profile-create' }),
+  function(req, res) {
+    res.redirect('/matching');
+  });
 
 module.exports = router;
