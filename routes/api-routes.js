@@ -53,7 +53,9 @@ module.exports = function(app) {
       bedrooms: req.body.bed,
     	bathrooms: req.body.bath, 
       price: req.body.price,
-      picturePath: req.body.img
+      picturePath: req.body.img,
+      longitude: req.body.longitude,
+      latitude: req.body.latitude
       })
     .then(function(dbListing){
     		console.log("Listing Added to the database!");

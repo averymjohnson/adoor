@@ -9,34 +9,44 @@ $(document).ready(function() {
   var priceInput = $("#price");
   var imgInput = $("#img");
 
-  
-
   $("#submitListing").on("click", listingSubmit);
+
+  // axios get request to pull longitude and latitude
   function listingSubmit(event){
-    // event.preventDefault();
+      axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params:{
+          address: addressInput.val() + " " + cityInput.val() + " " + "KS",
+          key:"AIzaSyBYS8UeF08wAvxPCw096lcnpgGQPtXFgH0"
+        }
+      })
+      .then(function(response){
+        var latitude = response.data.results[0].geometry.location.lat;
+        var longitude = response.data.results[0].geometry.location.lng;
 
-    // if (!addressInput.val().trim() || !cityInput.val().trim() || !zipInput.val() || !sqftInput.val() || !bedInput.val() || !bathInput.val() || !priceInput.val() || !imgInput.val()) {
-    //   return;
-    // }
-
-    var newListing = {
-      address: addressInput.val(),
-      city: cityInput.val(),
-      zip: zipInput.val(),
-      bed: bedInput.val(),
-      bath: bathInput.val(),
-      price: priceInput.val(),
-      img: imgInput.val()
+        var newListing = {
+        address: addressInput.val(),
+        city: cityInput.val(),
+        zip: zipInput.val(),
+        bed: bedInput.val(),
+        bath: bathInput.val(),
+        price: priceInput.val(),
+        img: imgInput.val(),
+        longitude: longitude,
+        latitude: latitude
     };
 
-    submitPost(newListing);
-    console.log(newListing);
-    console.log("new listing object");
+        submitPost(newListing);
+        console.log(newListing);
+
+      })
+      .catch(function(error){
+        console.log(error);
+      });   
   }
 
-  function submitPost(post) {
-    $.post("/api/listing", post);
-  }
+      function submitPost(post) {
+        $.post("/api/listing", post);
+      }
 
 });
 
