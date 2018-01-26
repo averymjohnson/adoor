@@ -36,7 +36,7 @@ module.exports = {
     },
     {
       userId: 3,
-      listingId: 2
+      listingId: 4
     },
     {
       userId: 4,
@@ -48,14 +48,14 @@ module.exports = {
     },
     {
       userId: 4,
-      listingId: 4
+      listingId: 2
     },
     {
       userId: 5,
       listingId: 2
     },
     {
-      userId: 3,
+      userId: 4,
       listingId: 1
     },
     {
