@@ -58,14 +58,60 @@ module.exports = function(app) {
   app.post("/api/match/check", function(req, res) {
     var userId = localStorage.getItem('currentUserID');
     var listingId = req.body.listingId;
+    var userObj;
+    var community;
 
-    db.user.findOne({
-      where: {
-        id: userId
-      }
-    }).then(function(user) {
-      console.log(user);      
+    // findUser(userId);
+    findCommunityInfo(listingId).then(function(info){
+      console.log(info);
+      community = info;
+      return findUser(userId);
+    }).then(function(user){
+      console.log(user);
+      userObj = user;
+      return checkForCommunityMatch(userObj, community);
+    }).then(function(compatibilityScore){
+      console.log(`Your Compatability Score is: ${compatibilityScore}`);
+    }).catch(function(err) {
+      console.log(err);
     });
+
+    // checkForCommunityMatch(6, 3);
+    
+
+
+    function findCommunityInfo(listingId) {
+      return new Promise(function(resolve, reject){
+          db.community.findOne({
+            where: {
+              listingId: listingId
+            }
+          }).then(function(communityInfo) { 
+            if (communityInfo !== undefined) {
+              resolve(community = communityInfo);
+            } else {
+              reject(console.log("cannot retrieve info"));
+            }
+          })
+        });
+      }
+
+    
+    function findUser(id) {
+      return new Promise(function(resolve, reject){
+        db.user.findOne({
+        where: {
+          id: id
+        }
+      }).then(function(user) {
+        if (user !== undefined) {
+        resolve(userObj = user);
+        } else {
+          reject(console.log("cannot retrieve info"))
+        }      
+      })
+      });
+    }
     
     function createMatch() {
       db.match.create({
@@ -73,6 +119,41 @@ module.exports = function(app) {
         listingId: listingId
       }).then(function(){});
     }
+
+    function checkForCommunityMatch(user, community) {
+      //checks user preferences vs. the listing's community score
+      var compatibilityScore = 0;
+      
+      if (
+        userObj.dataValues.caresAboutSchools === true && 
+        community.dataValues.bestSchoolRating > 8) 
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutGroceryStores === true && 
+        community.dataValues.groceryStoresCount > 0)
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutParks === true &&
+        community.dataValues.parksCount > 0)
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutCrime === true &&
+        community.dataValues.crimesCount < 30)
+      {
+        compatibilityScore++;
+      } else if (
+        userObj.dataValues.caresAboutHospitals === true &&
+        community.dataValues.hospitalsCount > 0)
+      {
+        compatibilityScore++;
+      }
+
+      return compatibilityScore;
+    }
+
     
 
 

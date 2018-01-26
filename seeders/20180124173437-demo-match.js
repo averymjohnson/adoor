@@ -63,13 +63,13 @@ module.exports = {
       listingId: 3
     },
     {
-      userId: 6,
+      userId: 5,
       listingId: 5
     },
     ], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Users', null, {});
+    return queryInterface.bulkDelete('matches', null, {});
   }
 };
