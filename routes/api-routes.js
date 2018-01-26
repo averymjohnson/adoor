@@ -32,19 +32,18 @@ module.exports = function(app) {
   app.post("/api/listing", function(req, res) {
     console.log(req.body);
     db.listing.create({
-      address: req.address, 
-      city: req.city, 
-      zipcode: req.zip, 
-      bedrooms: req.bed,
-    	bathrooms: req.baths, 
-      price: req.price,
-      img: req.img
+      address: req.body.address, 
+      city: req.body.city, 
+      zipcode: req.body.zip, 
+      bedrooms: req.body.bed,
+    	bathrooms: req.body.bath, 
+      price: req.body.price,
+      picturePath: req.body.img
       })
     .then(function(dbListing){
-        // res.json(dbListing);
     		console.log("Listing Added to the database!");
     	});
-    res.redirect('/matching');//this should be changed once to my-listings page.
+    res.redirect('/matching');
   });
 
   app.post("/api/match/check", function(req, res) {
