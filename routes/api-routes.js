@@ -29,6 +29,20 @@ module.exports = function(app) {
  //      res.send("Signed in");
  //  	});
 
+ app.post("/api/signUpUser", function(req, res){
+ 	console.log("SIGN UP USER POST API METHOD HERE!!!");
+ 	console.log(req.body);
+ 	db.user.create({
+ 		firstName: req.body.firstName,
+ 		lastName: req.body.lastName,
+ 		email: req.body.email,
+ 		password: req.body.password
+ 	}).then(function(){
+ 		console.log("User added to the database");
+ 	});
+ 	res.redirect('/matching');
+ });
+
   	// POST route for saving a new post
   app.post("/api/listing", function(req, res) {
     console.log(req.body);
