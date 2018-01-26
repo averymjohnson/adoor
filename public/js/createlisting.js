@@ -13,9 +13,11 @@ $(document).ready(function() {
 
   // axios get request to pull longitude and latitude
   function listingSubmit(event){
+      
+      // gets lat and long through google api
       axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params:{
-          address: addressInput.val() + " " + cityInput.val() + " " + "KS",
+          address: addressInput.val() + " " + cityInput.val(),
           key:"AIzaSyBYS8UeF08wAvxPCw096lcnpgGQPtXFgH0"
         }
       })

@@ -114,4 +114,20 @@ router.use('/', function(req, res, next){
   app.get('/new-listing', function (req, res) {
     res.render('createListing');
   });
+
+// ==========================================================
+// adding quiz info to the users table
+app.get("/survey", function(req, res){
+  var currentUserID = localStorage.getItem("currentUserID");
+  console.log(currentUserID);
+  db.user.findAll({
+        where: {
+        id: 5
+      }
+  }).then(function(addCommunities){
+    console.log(addCommunities);
+  })
+})
+
 };
+
