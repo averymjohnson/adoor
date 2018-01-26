@@ -20,7 +20,7 @@ $(document).ready(function() {
 	    			if (match !== null) {
 	    			  $("#matchAddress").html(`${match.address} ${match.city}, MO ${match.zipcode}`);
 	    			  var listingInfo = $("<p>");
-	    			  listingInfo.html(`bedrooms: ${match.bedrooms} bathrooms: ${match.bathrooms}`);
+	    			  listingInfo.html(`Bedrooms: ${match.bedrooms} Bathrooms: ${match.bathrooms}`);
 	    			  $(".modal-body").prepend(listingInfo);
 	    			  initMap();
 
