@@ -12,7 +12,7 @@ module.exports = function(){
 	function(req, accessToken, refreshToken, profile, done){
 		var user = {};
 
-		user.email = profile.emails[0].value;
+		//user.email = profile.emails[0].value;
 		//user.image = profile._json.image.url;  To access images a token is needed.
 		user.displayName = profile.displayName;
 
