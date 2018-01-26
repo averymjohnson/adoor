@@ -98,6 +98,11 @@ router.use('/', function(req, res, next){
     }
   });
 
+    app.get('/log-out', function (req, res) {
+    localStorage.removeItem("currentUserID");
+    res.render('index');
+  });
+
 
 
   app.get('/its-a-match', function (req, res) {

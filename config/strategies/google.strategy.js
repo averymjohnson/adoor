@@ -1,6 +1,8 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var db = require('../../models');
+var LocalStorage = require('node-localstorage').LocalStorage;
+var localStorage = new LocalStorage('./scratch');
 
 module.exports = function(){
 
@@ -27,6 +29,7 @@ module.exports = function(){
 
 			var dbUser = db.user.findOrCreate({where: {email: user.email} ,defaults: {firstName: user.firstName, lastName: user.lastName}})
  	        	.spread((user, created) => {
+ 	            	 localStorage.setItem("currentUserID", user.id);
  	            	 console.log(user.get({
  	             	plain: true
  		    	}));
