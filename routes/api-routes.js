@@ -29,6 +29,10 @@ module.exports = function(app) {
  //      res.send("Signed in");
  //  	});
 
+ app.post("/api/user-profile", function(req, res) {
+
+ })
+
  app.post("/api/signUpUser", function(req, res){
  	console.log("SIGN UP USER POST API METHOD HERE!!!");
  	console.log(req.body);

@@ -7,6 +7,8 @@ var PORT = process.env.PORT || 3000;
 var app = express();
 var auth = require('./routes/auth-routes.js');
 var flash=require("connect-flash");
+var upload = require("express-fileupload");
+app.use(upload());
 app.use(flash());
 // var api = require('./routes/api-routes.js');
 
