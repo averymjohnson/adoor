@@ -1,7 +1,7 @@
   <div class="container-fluid matches">
     <div class="row">
       <div class="col-lg-4">
-        <a href="/log-out">
+        <a href="/logout">
           <img class="logout" src="assets/img/logo-exit.png">
         </a>        
       </div>
@@ -19,7 +19,7 @@
  
       <div class="col-lg-12">
     
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="matchingCarousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
         {{> listing-block}}
           </div>
@@ -53,15 +53,13 @@
       </div>
       <div class="modal-body">
         <h5 class="modal-title" id="matchAddress">Match Address</h5>
+        <img id=matchImg src=""></div>
         <div id="map"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" id="keepMatchingBtn" data-dismiss="modal">Keep Matching!</button>
       </div>
     </div>
   </div>
 </div>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlT2Tk3-9ijc0QIJ2u6YXFESzKMJ5Myrk&callback=initMap"></script>
 <script type="text/javascript" src="js/matching.js"></script>
