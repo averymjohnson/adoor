@@ -52,7 +52,7 @@ module.exports = function(app) {
     var userId = localStorage.getItem('currentUserID');
 
     console.log("THIS IS THE USERID: " + userId);
-    
+
     db.user.update({
     	caresAboutSchools: req.body.caresAboutSchools,
       caresAboutGroceryStores: req.body.caresAboutGroceryStores,
@@ -73,7 +73,6 @@ module.exports = function(app) {
       }
 
     );//end of update
-
   });
 
 // pull my-matches from the db
