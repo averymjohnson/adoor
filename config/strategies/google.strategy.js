@@ -29,6 +29,7 @@ module.exports = function(){
 
 			var dbUser = db.user.findOrCreate({where: {email: user.email} ,defaults: {firstName: user.firstName, lastName: user.lastName}})
  	        	.spread((user, created) => {
+ 	        		 localStorage.clear();
  	            	 localStorage.setItem("currentUserID", user.id);
  	            	 console.log(user.get({
  	             	plain: true
