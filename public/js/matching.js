@@ -1,7 +1,6 @@
-
 $(document).ready(function() {
 	var match = null;
-	$('.carousel').carousel({
+	$('#matchingCarousel').carousel({
   		interval: false
 	});
 
@@ -15,26 +14,20 @@ $(document).ready(function() {
 					listingId: currentListing
 				}, function(data, status) {
 					match = data;
-	    			console.log(match);
 	    		}).then(function(data) {
 	    			if (match !== null) {
-	    			  $("#matchAddress").html(`${match.address} ${match.city}, MO ${match.zipcode}`);
-	    			  var listingInfo = $("<p>");
+	    			var listingPrice = numberWithCommas(parseInt(match.price)); 
+	    				var listingInfo = $("<p>");
+	    				var price = $("<p>");
+	    				var matchAddress = $('<h5>');
+	    				var matchImg = $('<img>');
+	    			  matchAddress.html(`${match.address} ${match.city}, MO ${match.zipcode}`);
+	    			  price.html(`Price: $${listingPrice}`);
+	    			  matchImg.attr('src', match.picturePath);
+	    			  matchImg.attr('id', 'matchImg');
 	    			  listingInfo.html(`Bedrooms: ${match.bedrooms} Bathrooms: ${match.bathrooms}`);
-	    			  $(".modal-body").prepend(listingInfo);
-	    			  initMap();
-
-	    			  function initMap() {
-				        var uluru = {lat: match.latitiude, lng: match.longitiude};
-				        var map = new google.maps.Map(document.getElementById('map'), {
-				          zoom: 4,
-				          center: uluru
-				        });
-				        var marker = new google.maps.Marker({
-				          position: uluru,
-				          map: map
-				        });
-				      }
+	    			  $(".modal-body").append(matchAddress, listingInfo, price, matchImg);
+	    	
 
 	    			  $('#matchModal').modal('show');
 	    			}
@@ -48,17 +41,29 @@ $(document).ready(function() {
 	});
 
 
+
 	
 	$('.carousel').on('slide.bs.carousel', function () {
-  		$('.carousel').carousel({
+  		$('#matchingCarousel').carousel({
   			interval: false
 		});
 	});
 
 	$('.modal').on('shown.bs.modal', function () {
-  		$('#myInput').trigger('focus')
+  		$('#myInput').trigger('focus');
+	})
+
+	$('.modal').on('hidden.bs.modal', function () {
+		$(".modal-body").empty();
+		$('#matchingCarousel').carousel({
+  			interval: false
+		});
 	})
 
 	$('.listingModule').first().addClass('active');
+
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 });

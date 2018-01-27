@@ -320,3 +320,23 @@ height: 120%
     margin: auto;
     height: 50px;
 }
+
+#map {
+    width: auto;
+    overflow: visible;
+}
+
+#matchImg {
+  max-width:100%;
+  max-height:100%;
+}
+
+#keepMatchingBtn {
+    border-radius: 5px;
+    padding: 20px 48px;
+    background-color: #C9283E;
+    border-color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
