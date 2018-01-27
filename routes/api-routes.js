@@ -44,7 +44,7 @@ module.exports = function(app) {
  	}).then(function(){
  		console.log("User added to the database");
  	});
- 	res.redirect('/matching');
+ 	res.redirect('/survey');
  });
 
   	// POST route for saving a new post
@@ -65,6 +65,32 @@ module.exports = function(app) {
     		console.log("Listing Added to the database!");
     	});
     res.redirect('/matching');
+  });
+
+    	// POST route for saving a new post
+  app.post("/api/addQuizInfoToUser", function(req, res) {
+  	console.log("IN QUIZ INFO API ROUTE");
+    console.log(req.body);
+
+    var userId = localStorage.getItem('currentUserID');
+
+    console.log("THIS IS THE USERID: " + userId);
+    
+    db.user.update({
+    	zipcode: req.body.zipcode,
+    	budget: req.body.budget,
+    	bedrooms: req.body.bedrooms,
+    	bathrooms: req.body.bathrooms
+    },{
+    	where:{id: userId}
+    }).then(function(result){
+    	console.log(result);
+    	console.log("Encontre al usuario");
+    	}
+    );//end of update
+
+    
+    //res.redirect('/matching');
   });
 
 // pull my-matches from the db
