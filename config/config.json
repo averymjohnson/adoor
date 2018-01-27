@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "mzLApq7214!",
     "database": "adoor_dev",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -14,10 +14,12 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
+    "username": "ds3wak7g2pfrcwbl",
+    "password": "iapt11lcw0h7xzdq",
     "database": "adoor_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "port": "3306",
+    "use_env_variable": "mysql://ds3wak7g2pfrcwbl:iapt11lcw0h7xzdq@kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hzn1q8ta0teltm72"
   }
 }
