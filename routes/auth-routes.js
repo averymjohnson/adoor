@@ -5,8 +5,8 @@ var router = express.Router();
 
 router.route('/google/callback')
 	.get(passport.authenticate('google',{
-		failureRedirect: '/error/'}), function(req, res){
-			res.redirect('/matching');
+		failureRedirect: '/error'}), function(req, res){
+			res.redirect('/survey');
 		});
 
 
