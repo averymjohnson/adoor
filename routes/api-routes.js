@@ -54,7 +54,12 @@ module.exports = function(app) {
     console.log("THIS IS THE USERID: " + userId);
     
     db.user.update({
-    	zipcode: req.body.zipcode,
+    	caresAboutSchools: req.body.caresAboutSchools,
+      caresAboutGroceryStores: req.body.caresAboutGroceryStores,
+      caresAboutHospitals: req.body.caresAboutHospitals,
+      caresAboutCrimes: req.body.caresAboutCrimes,
+      caresAboutParks: req.body.caresAboutParks,
+      zipcode: req.body.zipcode,
     	budget: req.body.budget,
     	bedrooms: req.body.bedrooms,
     	bathrooms: req.body.bathrooms
@@ -63,11 +68,12 @@ module.exports = function(app) {
     }).then(function(result){
     	console.log(result);
     	console.log("Encontre al usuario");
-    	}
+      
+      res.redirect('/matching');    	
+      }
+
     );//end of update
 
-    
-    //res.redirect('/matching');
   });
 
 // pull my-matches from the db
