@@ -65,8 +65,10 @@ $(document).ready(function() {
 };
  // Submits a new listing object to the api-routes to be posted in the db
   function addQuizInfoToUserTable(quizInfo) {
-    $.post("/api/addQuizInfoToUser", quizInfo);
-    
+    $.post("/api/addQuizInfoToUser", quizInfo).done(function(){
+      window.location.assign('/matching');
+    });
+
   }
 });
 
