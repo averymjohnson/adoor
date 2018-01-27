@@ -57,6 +57,8 @@ module.exports = function(app) {
       bedrooms: req.body.bed,
     	bathrooms: req.body.bath, 
       price: req.body.price,
+      longitude: req.body.longitude,
+      latitude: req.body.latitude,
       picturePath: req.body.img
       })
     .then(function(dbListing){
