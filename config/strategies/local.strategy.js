@@ -2,6 +2,8 @@ var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 var db = require('../../models');
 var userModel = require('../../models/user');
+var LocalStorage = require('node-localstorage').LocalStorage;
+var localStorage = new LocalStorage('./scratch');
 
 module.exports = function(){
 
@@ -20,6 +22,8 @@ passport.use('local',new LocalStrategy({
       } else if (password != user.password) {
         done(null, false, { message: 'Invalid password'});
       } else {
+        localStorage.clear();
+        localStorage.setItem("currentUserID", user.id);
         done(null, user);
       }
     }).error(function(err){
