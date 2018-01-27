@@ -52,7 +52,7 @@ module.exports = function(app) {
     var userId = localStorage.getItem('currentUserID');
 
     console.log("THIS IS THE USERID: " + userId);
-    
+
     db.user.update({
     	zipcode: req.body.zipcode,
     	budget: req.body.budget,
@@ -64,10 +64,8 @@ module.exports = function(app) {
     	console.log(result);
     	console.log("Encontre al usuario");
     	}
-    );//end of update
-
-    
-    //res.redirect('/matching');
+    );//end of update    
+    res.redirect('/matching');
   });
 
 // pull my-matches from the db
