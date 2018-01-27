@@ -6,7 +6,6 @@ var localStorage = new LocalStorage('./scratch');
 
 module.exports = function(app) {
 
-	
  app.post("/api/user-profile", function(req, res) {
 
  })
@@ -19,8 +18,8 @@ module.exports = function(app) {
  		lastName: req.body.lastName,
  		email: req.body.email,
  		password: req.body.password
- 	}).then(function(){
- 		console.log("User added to the database");
+ 	}).then(function(user){
+ 		localStorage.setItem("currentUserID", user.id);
  	});
  	res.redirect('/survey');
  });
@@ -244,7 +243,6 @@ module.exports = function(app) {
       return locationScore;
     }
 
-    // res.end();
   })
 
 //end of export
