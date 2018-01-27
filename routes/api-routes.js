@@ -6,29 +6,6 @@ var localStorage = new LocalStorage('./scratch');
 
 module.exports = function(app) {
 
-	// app.get("/api/users", function(req, res) {
-		
-	//   //req.passwordHash = bcrypt.hashSync(req.password);         
-          
- //      // db.user.findOrCreate({where: {email: req.user.email} ,defaults: {firstName: req.user.firstName, lastName: req.user.lastName, password: req.passwordHash}})//.then(function(dbUser) {
- //      //   .spread((user, created) => {
- //      //       console.log(user.get({
- //      //       plain: true
- //      // }));
- //      // if(created === true){
- //      //   res.redirect('/survey');
- //      // }
- //      // else{
- //      // 	res.redirect('/matching');
- //      // }
- //      //localStorage.setItem("currentUserID", user.id);
- //      // console.log(user.id);
- //      // console.log("First Time Created??: " + created);
- //      // console.log("New user created and inserted in User table");
- //      // });
- //      res.send("Signed in");
- //  	});
-
  app.post("/api/user-profile", function(req, res) {
 
  })
@@ -41,8 +18,8 @@ module.exports = function(app) {
  		lastName: req.body.lastName,
  		email: req.body.email,
  		password: req.body.password
- 	}).then(function(){
- 		console.log("User added to the database");
+ 	}).then(function(user){
+ 		localStorage.setItem("currentUserID", user.id);
  	});
  	res.redirect('/survey');
  });
@@ -268,7 +245,6 @@ module.exports = function(app) {
       return locationScore;
     }
 
-    // res.end();
   })
 
 //end of export
