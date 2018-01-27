@@ -6,29 +6,7 @@ var localStorage = new LocalStorage('./scratch');
 
 module.exports = function(app) {
 
-	// app.get("/api/users", function(req, res) {
-		
-	//   //req.passwordHash = bcrypt.hashSync(req.password);         
-          
- //      // db.user.findOrCreate({where: {email: req.user.email} ,defaults: {firstName: req.user.firstName, lastName: req.user.lastName, password: req.passwordHash}})//.then(function(dbUser) {
- //      //   .spread((user, created) => {
- //      //       console.log(user.get({
- //      //       plain: true
- //      // }));
- //      // if(created === true){
- //      //   res.redirect('/survey');
- //      // }
- //      // else{
- //      // 	res.redirect('/matching');
- //      // }
- //      //localStorage.setItem("currentUserID", user.id);
- //      // console.log(user.id);
- //      // console.log("First Time Created??: " + created);
- //      // console.log("New user created and inserted in User table");
- //      // });
- //      res.send("Signed in");
- //  	});
-
+	
  app.post("/api/user-profile", function(req, res) {
 
  })
@@ -75,7 +53,7 @@ module.exports = function(app) {
     var userId = localStorage.getItem('currentUserID');
 
     console.log("THIS IS THE USERID: " + userId);
-    
+
     db.user.update({
     	zipcode: req.body.zipcode,
     	budget: req.body.budget,
@@ -87,10 +65,8 @@ module.exports = function(app) {
     	console.log(result);
     	console.log("Encontre al usuario");
     	}
-    );//end of update
-
-    
-    //res.redirect('/matching');
+    );//end of update    
+    res.redirect('/matching');
   });
 
 // pull my-matches from the db
