@@ -33,7 +33,7 @@
 						      	<option value="true">0-5</option>
 						      	<option value="true">5-10</option>
 								<option value="true">10-15</option>
-								<option value="true">15-20</option>
+								<option value="false">15-20</option>
 								<option value="false">20+</option>
 					    	</select>
 				  	</div>
@@ -42,8 +42,8 @@
 					    <label for="alone">Do you like living alone?</label>
 						    	<select class="form-control" id="alone">
 						    	<option value="false"> </option>
-						      	<option value="false">Yes</option>
-						      	<option value="true">No</option>
+						      	<option value="true">Yes</option>
+						      	<option value="false">No</option>
 						    </select>
 				  	</div>
 				  	<!-- Question -->
@@ -53,7 +53,7 @@
 						    	<option value="false"> </option>
 						      	<option value="true">Dog</option>
 						      	<option value="true">Cat</option>
-								<option value="true">Other</option>
+								<option value="false">Other</option>
 								<option value="false">No Pets</option>
 						    </select>
 					 </div>
@@ -106,17 +106,17 @@
 					    <label for="zip">What Zipcode Would You Like to Live In?</label>
 						    <select class="form-control" id="zip">
 							    <option> </option>
-								<option>64101</option>
-								<option>64102</option>
-								<option>64105</option>
-								<option>64106</option>
-								<option>64108</option>
-								<option>64109</option>
-								<option>64110</option>
-								<option>64111</option>
-								<option>64112</option>
-								<option>64113</option>
-								<option>64114</option>
+								<option value="64101">64101</option>
+								<option value="64102">64102</option>
+								<option value="64105">64105</option>
+								<option value="64106">64106</option>
+								<option value="64108">64108</option>
+								<option value="64109">64109</option>
+								<option value="64110">64110</option>
+								<option value="64111">64111</option>
+								<option value="64112">64112</option>
+								<option value="64113">64113</option>
+								<!--<option>64114</option>
 								<option>64116</option>
 								<option>64117</option>
 								<option>64118</option>
@@ -176,16 +176,14 @@
 								<option>64197</option>
 								<option>64198</option>
 								<option>64199</option>
-								<option>64999</option>
+								<option>64999</option>-->
 						    </select>
 					  </div>
-					  <!-- Submit button -->
-					 <!--  <a href="/matching"> -->
-					  	<button type="button" class="btn btn-primary" id="match">See My Matches!</button>
-					 <!--  </a> -->	  
+					  <!-- Submit button -->					 	 
 				</form>
 			</div>
 		</div>
+		<button type="submit" class="btn btn-primary" id="match">See My Matches!</button>
 	</div>
 
 	<script type="text/javascript" src="js/quiz.js"></script>

@@ -6,29 +6,6 @@ var localStorage = new LocalStorage('./scratch');
 
 module.exports = function(app) {
 
-	// app.get("/api/users", function(req, res) {
-		
-	//   //req.passwordHash = bcrypt.hashSync(req.password);         
-          
- //      // db.user.findOrCreate({where: {email: req.user.email} ,defaults: {firstName: req.user.firstName, lastName: req.user.lastName, password: req.passwordHash}})//.then(function(dbUser) {
- //      //   .spread((user, created) => {
- //      //       console.log(user.get({
- //      //       plain: true
- //      // }));
- //      // if(created === true){
- //      //   res.redirect('/survey');
- //      // }
- //      // else{
- //      // 	res.redirect('/matching');
- //      // }
- //      //localStorage.setItem("currentUserID", user.id);
- //      // console.log(user.id);
- //      // console.log("First Time Created??: " + created);
- //      // console.log("New user created and inserted in User table");
- //      // });
- //      res.send("Signed in");
- //  	});
-
  app.post("/api/user-profile", function(req, res) {
 
  })
@@ -41,10 +18,10 @@ module.exports = function(app) {
  		lastName: req.body.lastName,
  		email: req.body.email,
  		password: req.body.password
- 	}).then(function(){
- 		console.log("User added to the database");
+ 	}).then(function(user){
+ 		localStorage.setItem("currentUserID", user.id);
  	});
- 	res.redirect('/matching');
+ 	res.redirect('/survey');
  });
 
   	// POST route for saving a new post
@@ -65,6 +42,37 @@ module.exports = function(app) {
     		console.log("Listing Added to the database!");
     	});
     res.redirect('/matching');
+  });
+
+    	// POST route for saving a new post
+  app.post("/api/addQuizInfoToUser", function(req, res) {
+  	console.log("IN QUIZ INFO API ROUTE");
+    console.log(req.body);
+
+    var userId = localStorage.getItem('currentUserID');
+
+    console.log("THIS IS THE USERID: " + userId);
+
+    db.user.update({
+    	caresAboutSchools: req.body.caresAboutSchools,
+      caresAboutGroceryStores: req.body.caresAboutGroceryStores,
+      caresAboutHospitals: req.body.caresAboutHospitals,
+      caresAboutCrimes: req.body.caresAboutCrimes,
+      caresAboutParks: req.body.caresAboutParks,
+      zipcode: req.body.zipcode,
+    	budget: req.body.budget,
+    	bedrooms: req.body.bedrooms,
+    	bathrooms: req.body.bathrooms
+    },{
+    	where:{id: userId}
+    }).then(function(result){
+    	console.log(result);
+    	console.log("Encontre al usuario");
+      
+      res.redirect('/matching');    	
+      }
+
+    );//end of update
   });
 
 // pull my-matches from the db
@@ -242,7 +250,6 @@ module.exports = function(app) {
       return locationScore;
     }
 
-    // res.end();
   })
 
 //end of export
