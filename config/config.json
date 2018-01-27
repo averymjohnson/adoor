@@ -14,12 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "ux2jnz4qrc335d9j",
-    "password": "gpjfedypikdpjx82",
-    "database": "biqc4zzd3bll1do9",
-    "host": "l7cup2om0gngra77.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql",
-    "use_env_variable": "mysql://ux2jnz4qrc335d9j:gpjfedypikdpjx82@l7cup2om0gngra77.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/biqc4zzd3bll1do9
-"
+    "username": "root",
+    "password": null,
+    "database": "adoor_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
