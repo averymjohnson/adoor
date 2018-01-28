@@ -6,7 +6,7 @@ module.exports = function(){
 	passport.use(new FacebookStrategy({
 		clientID: '927418800748086',
 		clientSecret: '5516c73f7792f37ff054048f8dc1931f',
-		callbackURL: 'http://localhost:3000/auth/facebook/callback',
+		callbackURL: 'https://dry-wildwood-96018.herokuapp.com/auth/facebook/callback',
 		passReqToCallback: true
 	},
 	function(req, accessToken, refreshToken, profile, done){
