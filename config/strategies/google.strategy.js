@@ -10,7 +10,7 @@ module.exports = function(){
 	passport.use(new GoogleStrategy({
 		clientID: '786832441182-3vhl05ve7u3ee3fr35j477lnv2gqv2h0.apps.googleusercontent.com',
 		clientSecret: 'yGWrMDHR6s87L9Mk0NaAfTnW',
-		callbackURL: 'http://localhost:3000/auth/google/callback'},
+		callbackURL: 'https://dry-wildwood-96018.herokuapp.com/auth/google/callback'},
 		function(token, tokenSecret, profile, done){
 			var user = {};
 
